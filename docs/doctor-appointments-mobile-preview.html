@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en" data-phone-width="390">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doctor Appointments — Mobile Before &amp; After</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --navy: #123e70;
+            --blue: #2d6eb4;
+            --ink: #15324f;
+            --muted: #71849a;
+            --line: #dce6ef;
+            --paper: #f4f7fb;
+            --phone-width: 390px;
+        }
+        html[data-phone-width="360"] { --phone-width: 360px; }
+        html[data-phone-width="390"] { --phone-width: 390px; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: linear-gradient(145deg, #f3f7fc, #e9f0f8);
+            color: var(--ink);
+            font: 14px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        button { font: inherit; }
+        .page { width: min(1320px, 100%); margin: 0 auto; padding: 30px 26px 50px; }
+        .eyebrow { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+        h1 { margin: 7px 0 8px; color: #12385f; font-size: clamp(25px, 4vw, 36px); line-height: 1.12; letter-spacing: -.035em; }
+        .intro { max-width: 760px; margin: 0; color: #60758c; font-size: 15px; }
+        .notice {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 8px 11px;
+            border: 1px solid #d7e6f4; border-radius: 9px; background: #f9fcff; color: #557087; font-size: 12px;
+        }
+        .controls {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+            margin: 25px 0 22px; padding: 13px 15px; border: 1px solid #dce6ef; border-radius: 14px;
+            background: rgba(255,255,255,.82); box-shadow: 0 7px 22px rgba(32,68,105,.06);
+        }
+        .control-group { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+        .control-label { margin-right: 4px; color: #6c8198; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+        .switch {
+            min-height: 34px; padding: 7px 11px; border: 1px solid #dce6ef; border-radius: 9px;
+            background: #fff; color: #526a82; font-size: 12px; font-weight: 700; cursor: pointer;
+        }
+        .switch.active { border-color: #2d6eb4; background: #eaf3fc; color: #1b5b96; box-shadow: inset 0 0 0 1px #2d6eb4; }
+        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 24px; }
+        .compare-card {
+            min-width: 0; padding: 17px; border: 1px solid #dce6ef; border-radius: 18px;
+            background: rgba(255,255,255,.8); box-shadow: 0 12px 32px rgba(30,62,94,.075);
+        }
+        .compare-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 auto 13px; max-width: calc(var(--phone-width) + 24px); }
+        .state-label { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 900; letter-spacing: .1em; }
+        .state-label::before { width: 8px; height: 8px; border-radius: 50%; content: ""; }
+        .before-label { color: #a34949; }
+        .before-label::before { background: #df7474; }
+        .after-label { color: #257555; }
+        .after-label::before { background: #39aa78; }
+        .device-size { color: #8092a5; font-size: 11px; font-weight: 700; }
+        .phone-frame {
+            position: relative; width: calc(var(--phone-width) + 24px); max-width: 100%; margin: 0 auto;
+            padding: 10px; border: 1px solid #344252; border-radius: 42px; background: #111923;
+            box-shadow: 0 17px 35px rgba(13,30,48,.22), inset 0 0 0 2px #263342;
+        }
+        .phone-frame::before {
+            position: absolute; z-index: 5; top: 16px; left: 50%; width: 82px; height: 18px;
+            border-radius: 14px; background: #101721; content: ""; transform: translateX(-50%);
+        }
+        .phone-screen {
+            position: relative; width: var(--phone-width); max-width: 100%; height: 744px; overflow: hidden;
+            border-radius: 31px; background: #f5f8fc; isolation: isolate;
+        }
+        .statusbar { height: 37px; padding: 10px 19px 0; display: flex; justify-content: space-between; color: #203b57; font-size: 10px; font-weight: 800; }
+        .mini-topbar {
+            height: 52px; display: flex; align-items: center; gap: 9px; padding: 0 12px;
+            border-bottom: 1px solid #e4ebf2; background: #fff;
+        }
+        .menu-toggle { width: 32px; height: 32px; flex: 0 0 32px; border: 0; border-radius: 9px; background: #eef4fa; color: #234c75; cursor: pointer; }
+        .search-pill { min-width: 0; flex: 1; padding: 8px 9px; border: 1px solid #edf1f6; border-radius: 9px; color: #95a4b3; font-size: 10px; white-space: nowrap; overflow: hidden; }
+        .avatar { width: 27px; height: 27px; display: grid; place-items: center; flex: 0 0 27px; border-radius: 50%; background: #d8e8f7; color: #285b88; font-size: 10px; font-weight: 800; }
+        .screen-scroll { height: calc(100% - 89px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+        .screen-content { padding: 14px 13px 22px; }
+        .view-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 11px; }
+        .screen-content h2 { margin: 0; color: #143c65; font-size: 16px; line-height: 1.2; letter-spacing: -.02em; }
+        .small-caption { margin: 4px 0 0; color: #8191a3; font-size: 9px; }
+        .book-cta { flex: 0 0 auto; padding: 7px 9px; border: 0; border-radius: 8px; background: var(--blue); color: #fff; font-size: 9px; font-weight: 800; white-space: nowrap; }
+        .screen-kicker { margin: 0 0 8px; color: #6f8399; font-size: 8px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+        .screen-view { display: none; }
+        html[data-view="calendar"] .screen-view[data-view="calendar"],
+        html[data-view="view"] .screen-view[data-view="view"],
+        html[data-view="book"] .screen-view[data-view="book"],
+        html[data-view="edit"] .screen-view[data-view="edit"] { display: block; }
+        .surface { margin-bottom: 10px; padding: 11px; border: 1px solid #e1e9f1; border-radius: 12px; background: #fff; box-shadow: 0 3px 10px rgba(30,62,94,.035); }
+        .local-tabs { display: flex; gap: 5px; margin: 11px 0; overflow: hidden; }
+        .local-tabs span { min-width: 0; flex: 1 1 0; padding: 7px 4px; border: 1px solid #dce6ef; border-radius: 8px; background: #fff; color: #62788e; text-align: center; font-size: 8px; font-weight: 800; white-space: nowrap; }
+        .local-tabs span.selected { border-color: #2d6eb4; background: #eaf3fc; color: #1e5d98; }
+        .calendar-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 5px; margin-bottom: 9px; }
+        .arrows { flex: 0 0 auto; color: #426682; font-size: 9px; font-weight: 900; white-space: nowrap; }
+        .month-name { min-width: 0; color: #173f68; font-size: 9px; font-weight: 900; text-align: center; white-space: nowrap; }
+        .calendar-clip { width: 100%; overflow: hidden; border: 1px solid #e2eaf2; border-radius: 8px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100%; background: #fff; }
+        .calendar-grid.before-grid { width: 438px; min-width: 438px; grid-template-columns: repeat(7, 62px); }
+        .weekday { height: 25px; display: grid; place-items: center; border-right: 1px solid #e7edf3; border-bottom: 1px solid #e7edf3; background: #f5f8fb; color: #75879a; font-size: 7px; font-weight: 900; letter-spacing: .04em; white-space: nowrap; }
+        .day-cell { height: 66px; min-width: 0; padding: 4px 3px; overflow: hidden; border-right: 1px solid #e7edf3; border-bottom: 1px solid #e7edf3; background: #fff; }
+        .day-num { width: 15px; height: 15px; display: grid; place-items: center; border-radius: 50%; color: #65798c; font-size: 8px; font-weight: 800; }
+        .day-cell.today .day-num { background: #2d6eb4; color: #fff; }
+        .event-chip { display: block; margin-top: 3px; padding: 2px 2px; overflow: hidden; border-radius: 3px; background: #2d6eb4; color: #fff; font-size: 6px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+        .more-link { display: block; margin-top: 3px; color: #2d6eb4; font-size: 7px; font-weight: 800; line-height: 1.2; white-space: nowrap; }
+        .before-calendar .day-cell { height: 61px; }
+        .before-calendar .more-link { height: 7px; overflow: hidden; }
+        .after-calendar .day-cell { height: 78px; }
+        .after-calendar .weekday { font-size: 9px; letter-spacing: 0; }
+        .calendar-note { margin: 7px 0 0; color: #8192a4; font-size: 8px; }
+        .warning { color: #aa5555; }
+        .success { color: #267757; }
+        .mini-kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin: 10px 0; }
+        .kpi { padding: 9px; border: 1px solid #e3ebf3; border-radius: 9px; background: #fff; }
+        .kpi b { display: block; color: #163e66; font-size: 14px; }
+        .kpi span { color: #8090a2; font-size: 8px; }
+        .table-viewport { max-width: 100%; overflow: hidden; border: 1px solid #e2eaf2; border-radius: 9px; background: #fff; }
+        .table-viewport.after-scroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+        .mini-table { width: 620px; border-collapse: collapse; table-layout: fixed; color: #526a81; font-size: 8px; }
+        .mini-table th, .mini-table td { padding: 8px 7px; border-bottom: 1px solid #edf1f5; text-align: left; white-space: nowrap; }
+        .mini-table th { background: #f7f9fc; color: #71859a; font-size: 7px; letter-spacing: .05em; }
+        .mini-table .patient { color: #203f5f; font-weight: 800; }
+        .mini-table .badge { display: inline-block; padding: 3px 5px; border-radius: 999px; background: #e8f6ef; color: #288158; font-size: 7px; font-weight: 800; }
+        .mini-table .action { padding: 4px 5px; border: 1px solid #d7e5f1; border-radius: 999px; background: #fff; color: #2868a3; font-size: 7px; font-weight: 800; }
+        .scroll-hint { display: flex; justify-content: space-between; margin: 6px 1px 0; color: #8193a7; font-size: 8px; }
+        .form-card { padding: 11px; border: 1px solid #e1e9f1; border-radius: 11px; background: #fff; }
+        .form-card h3 { margin: 0 0 9px; color: #173e65; font-size: 12px; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+        .form-grid.single { grid-template-columns: minmax(0, 1fr); }
+        .field { min-width: 0; }
+        .field label { display: block; margin-bottom: 3px; color: #71859a; font-size: 8px; font-weight: 800; }
+        .field-value { min-height: 31px; display: flex; align-items: center; padding: 6px 7px; overflow: hidden; border: 1px solid #dfe7ef; border-radius: 7px; background: #fff; color: #52677c; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+        .before-form { width: 430px; min-width: 430px; }
+        .before-embed { width: 440px; min-width: 440px; }
+        .embed-cut { max-width: 100%; overflow: hidden; border: 1px solid #e1e9f1; border-radius: 10px; }
+        .embed-fluid { width: 100%; min-width: 0; }
+        .progress { display: flex; gap: 4px; margin-bottom: 10px; }
+        .progress span { height: 4px; flex: 1; border-radius: 4px; background: #e5edf4; }
+        .progress span:first-child { background: #2d6eb4; }
+        .primary-action { width: 100%; min-height: 37px; margin-top: 10px; border: 0; border-radius: 8px; background: #2d6eb4; color: #fff; font-size: 10px; font-weight: 900; }
+        .action-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+        .secondary-action { min-height: 32px; flex: 1 1 auto; padding: 6px 8px; border: 1px solid #d8e4ef; border-radius: 8px; background: #fff; color: #416482; font-size: 8px; font-weight: 800; }
+        .before-form-clip { max-width: 100%; overflow: hidden; }
+        .form-reach-note { margin: 8px 0 0; color: #74879a; font-size: 8px; }
+        .drawer-backdrop { position: absolute; z-index: 8; inset: 0; display: none; background: rgba(16,35,56,.38); }
+        .drawer-backdrop.open { display: block; }
+        .drawer-panel { width: 82%; height: 100%; max-height: 100%; padding: 13px 10px; overflow: hidden; border-right: 1px solid #e0e8f0; background: #fff; box-shadow: 8px 0 24px rgba(14,39,65,.2); }
+        .drawer-panel.scrollable { overflow-y: auto; overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+        .drawer-title { margin: 0 0 8px; color: #153c62; font-size: 13px; font-weight: 900; }
+        .drawer-entry { min-height: 34px; display: flex; align-items: center; gap: 8px; margin: 3px 0; padding: 7px 8px; border-radius: 7px; color: #536b81; font-size: 9px; font-weight: 700; }
+        .drawer-entry.active { background: #eaf3fb; color: #205d91; }
+        .drawer-entry span { width: 15px; color: #6487a6; text-align: center; }
+        .drawer-entry.pharmacy { border: 1px solid #d8e8f4; color: #225f91; }
+        .drawer-close { float: right; width: 25px; height: 25px; border: 0; border-radius: 7px; background: #edf3f8; color: #3b5d7d; font-weight: 900; cursor: pointer; }
+        .legend { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; color: #8292a3; font-size: 8px; }
+        .legend strong { color: #49667f; }
+        .page-foot { margin: 22px 4px 0; color: #75899e; font-size: 11px; text-align: center; }
+        @media (max-width: 930px) {
+            .comparison { grid-template-columns: minmax(0, 1fr); }
+            .compare-card { width: min(100%, 590px); margin: 0 auto; }
+        }
+        @media (max-width: 450px) {
+            .page { padding: 22px 12px 35px; }
+            .controls { align-items: flex-start; padding: 11px; }
+            .control-group { width: 100%; }
+            .compare-card { padding: 11px 7px; }
+            .phone-frame { width: min(calc(var(--phone-width) + 24px), calc(100vw - 44px)); }
+            .phone-screen { width: 100%; }
+            .compare-head { padding: 0 8px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="eyebrow">Dior Medical · Doctor Dashboard</div>
+        <h1>Appointments, ready for mobile.</h1>
+        <p class="intro">A device-frame comparison of the four Doctor Dashboard appointment sub-tabs. Switch the preview and viewport below; the “after” view shows the intended phone layout and scroll behavior.</p>
+        <div class="notice"><strong>Static visual preview</strong><span>Sample content only — not connected to WordPress or patient data.</span></div>
+
+        <div class="controls" aria-label="Preview controls">
+            <div class="control-group" role="tablist" aria-label="Appointment sub-tab">
+                <span class="control-label">Sub-tab</span>
+                <button class="switch active" type="button" data-view-switch="calendar" role="tab" aria-selected="true">Calendar</button>
+                <button class="switch" type="button" data-view-switch="view" role="tab" aria-selected="false">View</button>
+                <button class="switch" type="button" data-view-switch="book" role="tab" aria-selected="false">Book</button>
+                <button class="switch" type="button" data-view-switch="edit" role="tab" aria-selected="false">Edit</button>
+            </div>
+            <div class="control-group" aria-label="Device width">
+                <span class="control-label">Viewport</span>
+                <button class="switch" type="button" data-width-switch="360">360 px</button>
+                <button class="switch active" type="button" data-width-switch="390">390 px</button>
+            </div>
+        </div>
+
+        <section class="comparison" aria-label="Before and after mobile comparison">
+            <article class="compare-card">
+                <div class="compare-head">
+                    <span class="state-label before-label">BEFORE</span>
+                    <span class="device-size">390 px device frame</span>
+                </div>
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="statusbar"><span>9:41</span><span>●●●　◖　▰</span></div>
+                        <div class="mini-topbar">
+                            <button class="menu-toggle" type="button" data-drawer-toggle aria-label="Open before drawer">☰</button>
+                            <div class="search-pill">Search patients, appointments...</div>
+                            <div class="avatar">DR</div>
+                        </div>
+                        <div class="screen-scroll">
+                            <div class="screen-content">
+                                <div class="screen-view" data-view="calendar">
+                                    <div class="view-title-row"><div><h2>Appointment Calendar</h2><p class="small-caption">Your visits and daily schedule</p></div><button class="book-cta">＋ Book</button></div>
+                                    <div class="local-tabs"><span class="selected">Calendar</span><span>View</span><span>Book</span><span>Edit</span></div>
+                                    <div class="surface">
+                                        <div class="calendar-toolbar"><span class="arrows">‹　›　Today</span><span class="month-name">November 2026</span><span class="arrows">Month</span></div>
+                                        <div class="calendar-clip before-calendar">
+                                            <div class="calendar-grid before-grid">
+                                                <div class="weekday">SUN</div><div class="weekday">MON</div><div class="weekday">TUE</div><div class="weekday">WED</div><div class="weekday">THU</div><div class="weekday">FRI</div><div class="weekday">SAT</div>
+                                                <div class="day-cell"><span class="day-num">1</span><span class="event-chip">Follow-up</span><span class="event-chip">Consult</span><span class="event-chip">Review</span><span class="more-link">+36 more</span></div>
+                                                <div class="day-cell"><span class="day-num">2</span><span class="event-chip">Patient visit</span></div>
+                                                <div class="day-cell"><span class="day-num">3</span><span class="day-num">Telehealth</span></div>
+                                                <div class="day-cell today"><span class="day-num">4</span><span class="event-chip">Cardiology</span></div>
+                                                <div class="day-cell"><span class="day-num">5</span></div>
+                                                <div class="day-cell"><span class="day-num">6</span></div>
+                                                <div class="day-cell"><span class="day-num">7</span></div>
+                                            </div>
+                                        </div>
+                                        <p class="calendar-note warning">7th day column is cut off; weekday labels collide; “+36 more” is clipped.</p>
+                                    </div>
+                                    <p class="screen-kicker">Drawer bug</p>
+                                    <div class="surface"><span class="small-caption">Tap ☰ to compare the menu. The old drawer clips lower navigation on short screens.</span></div>
+                                </div>
+
+                                <div class="screen-view" data-view="view">
+                                    <div class="view-title-row"><div><h2>View Appointments</h2><p class="small-caption">Appointments Registry</p></div><button class="book-cta">＋ Book</button></div>
+                                    <div class="mini-kpis"><div class="kpi"><b>128</b><span>Total bookings</span></div><div class="kpi"><b>12</b><span>Upcoming</span></div></div>
+                                    <div class="surface"><p class="screen-kicker">Search &amp; filters</p><div class="form-grid"><div class="field"><label>Search</label><div class="field-value">Patient, doctor...</div></div><div class="field"><label>Doctor</label><div class="field-value">All doctors</div></div><div class="field"><label>Status</label><div class="field-value">All statuses</div></div><div class="field"><label>Date</label><div class="field-value">All dates</div></div></div></div>
+                                    <div class="table-viewport">
+                                        <table class="mini-table"><thead><tr><th>Patient</th><th>Visit</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead><tbody><tr><td class="patient">A. Shah</td><td>Video visit</td><td>Nov 04</td><td><span class="badge">Confirmed</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr><tr><td class="patient">M. Patel</td><td>Follow-up</td><td>Nov 06</td><td><span class="badge">Pending</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr></tbody></table>
+                                    </div>
+                                    <p class="calendar-note warning">Table and row actions are cut off at the screen edge.</p>
+                                </div>
+
+                                <div class="screen-view" data-view="book">
+                                    <div class="view-title-row"><div><h2>Book Appointment</h2><p class="small-caption">Schedule a consultation</p></div></div>
+                                    <div class="surface"><p class="screen-kicker">HIPAAtizer booking form</p><div class="progress"><span></span><span></span><span></span></div><div class="embed-cut"><div class="form-card before-embed"><h3>New appointment request</h3><div class="form-grid"><div class="field"><label>Patient name</label><div class="field-value">Select a patient</div></div><div class="field"><label>Visit type</label><div class="field-value">Telehealth</div></div><div class="field"><label>Date</label><div class="field-value">Choose date</div></div><div class="field"><label>Time</label><div class="field-value">Choose time</div></div></div><button class="primary-action">Continue</button></div></div><p class="calendar-note warning">Embedded form has a fixed width; right edge and submit action can disappear.</p></div>
+                                </div>
+
+                                <div class="screen-view" data-view="edit">
+                                    <div class="view-title-row"><div><h2>Edit Appointment</h2><p class="small-caption">Appointment details</p></div></div>
+                                    <div class="form-card before-form-clip"><div class="form-card before-form"><h3>Scheduling &amp; patient information</h3><div class="form-grid"><div class="field"><label>Appointment date</label><div class="field-value">Nov 04, 2026</div></div><div class="field"><label>Status</label><div class="field-value">Confirmed</div></div><div class="field"><label>Visit modality</label><div class="field-value">Video visit</div></div><div class="field"><label>Payment</label><div class="field-value">Paid</div></div><div class="field"><label>Doctor</label><div class="field-value">Dr. Sterling</div></div><div class="field"><label>Patient</label><div class="field-value">A. Shah</div></div></div><div class="action-row"><button class="secondary-action">Save &amp; Update</button><button class="secondary-action">Reset</button></div></div></div><p class="calendar-note warning">Two-column controls are squeezed; primary action is easy to miss.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drawer-backdrop" data-drawer>
+                            <div class="drawer-panel">
+                                <button class="drawer-close" type="button" data-drawer-close aria-label="Close menu">×</button>
+                                <div class="drawer-title">Dior Medical</div>
+                                <div class="drawer-entry active"><span>⌂</span>Dashboard</div>
+                                <div class="drawer-entry"><span>▦</span>Appointments</div>
+                                <div class="drawer-entry"><span>▣</span>View Appointment</div>
+                                <div class="drawer-entry"><span>＋</span>Book Appointment</div>
+                                <div class="drawer-entry"><span>✎</span>Edit Appointment</div>
+                                <div class="drawer-entry"><span>♙</span>Patients</div>
+                                <div class="drawer-entry"><span>♙</span>All Patients</div>
+                                <div class="drawer-entry"><span>＋</span>Add Patient</div>
+                                <div class="drawer-entry"><span>▣</span>Patient Records</div>
+                                <div class="drawer-entry"><span>▤</span>Accounts</div>
+                                <div class="drawer-entry"><span>▤</span>Bill List</div>
+                                <div class="drawer-entry"><span>＋</span>Add Bill</div>
+                                <div class="drawer-entry"><span>↗</span>Income</div>
+                                <div class="drawer-entry"><span>↘</span>Expenses</div>
+                                <div class="drawer-entry"><span>✚</span>Consultation Notes</div>
+                                <div class="drawer-entry"><span>✚</span>E-Prescriptions</div>
+                                <div class="drawer-entry"><span>▣</span>Documents</div>
+                                <div class="drawer-entry"><span>▤</span>Upload Reports</div>
+                                <div class="drawer-entry"><span>◷</span>Telemedicine</div>
+                                <div class="drawer-entry pharmacy"><span>✚</span>Pharmacy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compare-card">
+                <div class="compare-head">
+                    <span class="state-label after-label">AFTER</span>
+                    <span class="device-size">390 px device frame</span>
+                </div>
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="statusbar"><span>9:41</span><span>●●●　◖　▰</span></div>
+                        <div class="mini-topbar">
+                            <button class="menu-toggle" type="button" data-drawer-toggle aria-label="Open responsive drawer">☰</button>
+                            <div class="search-pill">Search patients, appointments...</div>
+                            <div class="avatar">DR</div>
+                        </div>
+                        <div class="screen-scroll">
+                            <div class="screen-content">
+                                <div class="screen-view" data-view="calendar">
+                                    <div class="view-title-row"><div><h2>Appointment Calendar</h2><p class="small-caption">Your visits and daily schedule</p></div><button class="book-cta">＋ Book</button></div>
+                                    <div class="local-tabs"><span class="selected">Calendar</span><span>View</span><span>Book</span><span>Edit</span></div>
+                                    <div class="surface">
+                                        <div class="calendar-toolbar"><span class="arrows">‹　›　Today</span><span class="month-name">November 2026</span><span class="arrows">Month</span></div>
+                                        <div class="calendar-clip after-calendar">
+                                            <div class="calendar-grid">
+                                                <div class="weekday">S</div><div class="weekday">M</div><div class="weekday">T</div><div class="weekday">W</div><div class="weekday">T</div><div class="weekday">F</div><div class="weekday">S</div>
+                                                <div class="day-cell"><span class="day-num">1</span><span class="event-chip">Follow-up</span><span class="more-link">+36 more</span></div>
+                                                <div class="day-cell"><span class="day-num">2</span><span class="event-chip">Patient visit</span></div>
+                                                <div class="day-cell"><span class="day-num">3</span><span class="event-chip">Telehealth</span></div>
+                                                <div class="day-cell today"><span class="day-num">4</span><span class="event-chip">Cardiology</span></div>
+                                                <div class="day-cell"><span class="day-num">5</span></div>
+                                                <div class="day-cell"><span class="day-num">6</span></div>
+                                                <div class="day-cell"><span class="day-num">7</span></div>
+                                            </div>
+                                        </div>
+                                        <p class="calendar-note success">All seven columns fit; narrow headers and one event keep “+36 more” visible.</p>
+                                    </div>
+                                    <p class="screen-kicker">Responsive drawer</p>
+                                    <div class="surface"><span class="small-caption">Tap ☰, then scroll inside the menu to reach Pharmacy and the lower links.</span></div>
+                                </div>
+
+                                <div class="screen-view" data-view="view">
+                                    <div class="view-title-row"><div><h2>View Appointments</h2><p class="small-caption">Appointments Registry</p></div><button class="book-cta">＋ Book</button></div>
+                                    <div class="mini-kpis"><div class="kpi"><b>128</b><span>Total bookings</span></div><div class="kpi"><b>12</b><span>Upcoming</span></div></div>
+                                    <div class="surface"><p class="screen-kicker">Search &amp; filters</p><div class="form-grid"><div class="field"><label>Search</label><div class="field-value">Patient, doctor...</div></div><div class="field"><label>Doctor</label><div class="field-value">All doctors</div></div><div class="field"><label>Status</label><div class="field-value">All statuses</div></div><div class="field"><label>Date</label><div class="field-value">All dates</div></div></div></div>
+                                    <div class="table-viewport after-scroll">
+                                        <table class="mini-table"><thead><tr><th>Patient</th><th>Visit</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead><tbody><tr><td class="patient">A. Shah</td><td>Video visit</td><td>Nov 04</td><td><span class="badge">Confirmed</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr><tr><td class="patient">M. Patel</td><td>Follow-up</td><td>Nov 06</td><td><span class="badge">Pending</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr></tbody></table>
+                                    </div>
+                                    <div class="scroll-hint"><span>Swipe table horizontally</span><strong>→ actions</strong></div>
+                                    <p class="calendar-note success">Filters wrap into the available width; action buttons remain inside the scroll area.</p>
+                                </div>
+
+                                <div class="screen-view" data-view="book">
+                                    <div class="view-title-row"><div><h2>Book Appointment</h2><p class="small-caption">Schedule a consultation</p></div></div>
+                                    <div class="surface"><p class="screen-kicker">HIPAAtizer booking form</p><div class="progress"><span></span><span></span><span></span></div><div class="embed-cut"><div class="form-card embed-fluid"><h3>New appointment request</h3><div class="form-grid single"><div class="field"><label>Patient name</label><div class="field-value">Select a patient</div></div><div class="field"><label>Visit type</label><div class="field-value">Telehealth</div></div><div class="field"><label>Date</label><div class="field-value">Choose date</div></div><div class="field"><label>Time</label><div class="field-value">Choose time</div></div></div><button class="primary-action">Continue</button></div></div><p class="calendar-note success">Embed fits the phone; fields stack and the Continue action stays visible.</p></div>
+                                </div>
+
+                                <div class="screen-view" data-view="edit">
+                                    <div class="view-title-row"><div><h2>Edit Appointment</h2><p class="small-caption">Appointment details</p></div></div>
+                                    <div class="form-card"><h3>Scheduling &amp; patient information</h3><div class="form-grid single"><div class="field"><label>Appointment date</label><div class="field-value">Nov 04, 2026</div></div><div class="field"><label>Status</label><div class="field-value">Confirmed</div></div><div class="field"><label>Visit modality</label><div class="field-value">Video visit</div></div><div class="field"><label>Payment</label><div class="field-value">Paid</div></div><div class="field"><label>Doctor</label><div class="field-value">Dr. Sterling</div></div><div class="field"><label>Patient</label><div class="field-value">A. Shah</div></div></div><div class="action-row"><button class="secondary-action">Save &amp; Update</button><button class="secondary-action">Reset</button><button class="secondary-action">Return to list</button></div></div><p class="calendar-note success">Form fields stack with full-width touch targets; Save, Reset, and Return wrap within the screen.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drawer-backdrop" data-drawer>
+                            <div class="drawer-panel scrollable">
+                                <button class="drawer-close" type="button" data-drawer-close aria-label="Close menu">×</button>
+                                <div class="drawer-title">Dior Medical</div>
+                                <div class="drawer-entry active"><span>⌂</span>Dashboard</div>
+                                <div class="drawer-entry"><span>▦</span>Appointments</div>
+                                <div class="drawer-entry"><span>▣</span>View Appointment</div>
+                                <div class="drawer-entry"><span>＋</span>Book Appointment</div>
+                                <div class="drawer-entry"><span>✎</span>Edit Appointment</div>
+                                <div class="drawer-entry"><span>♙</span>Patients</div>
+                                <div class="drawer-entry"><span>♙</span>All Patients</div>
+                                <div class="drawer-entry"><span>＋</span>Add Patient</div>
+                                <div class="drawer-entry"><span>▣</span>Patient Records</div>
+                                <div class="drawer-entry"><span>▤</span>Accounts</div>
+                                <div class="drawer-entry"><span>▤</span>Bill List</div>
+                                <div class="drawer-entry"><span>＋</span>Add Bill</div>
+                                <div class="drawer-entry"><span>↗</span>Income</div>
+                                <div class="drawer-entry"><span>↘</span>Expenses</div>
+                                <div class="drawer-entry"><span>✚</span>Consultation Notes</div>
+                                <div class="drawer-entry"><span>✚</span>E-Prescriptions</div>
+                                <div class="drawer-entry"><span>▣</span>Documents</div>
+                                <div class="drawer-entry"><span>▤</span>Upload Reports</div>
+                                <div class="drawer-entry"><span>◷</span>Telemedicine</div>
+                                <div class="drawer-entry pharmacy"><span>✚</span>Pharmacy</div>
+                                <div class="drawer-entry"><span>▤</span>Documents &amp; Reports</div>
+                                <div class="drawer-entry"><span>⚙</span>Settings</div>
+                                <div class="drawer-entry"><span>↪</span>Logout</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <p class="page-foot">Before / after static illustration · Use the controls above to inspect Calendar, View, Book and Edit at 360px or 390px.</p>
+    </main>
+    <script>
+        (function () {
+            var docEl = document.documentElement;
+            var widthLabels = document.querySelectorAll('.device-size');
+            function updateWidth(width) {
+                docEl.setAttribute('data-phone-width', width);
+                document.querySelectorAll('[data-width-switch]').forEach(function (button) {
+                    var active = button.getAttribute('data-width-switch') === width;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+                widthLabels.forEach(function (label) { label.textContent = width + ' px device frame'; });
+            }
+            function updateView(view) {
+                docEl.setAttribute('data-view', view);
+                document.querySelectorAll('[data-view-switch]').forEach(function (button) {
+                    var active = button.getAttribute('data-view-switch') === view;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
+                document.querySelectorAll('.screen-scroll').forEach(function (scroll) { scroll.scrollTop = 0; });
+                document.querySelectorAll('[data-drawer]').forEach(function (drawer) { drawer.classList.remove('open'); });
+            }
+            document.querySelectorAll('[data-width-switch]').forEach(function (button) {
+                button.addEventListener('click', function () { updateWidth(button.getAttribute('data-width-switch')); });
+            });
+            document.querySelectorAll('[data-view-switch]').forEach(function (button) {
+                button.addEventListener('click', function () { updateView(button.getAttribute('data-view-switch')); });
+            });
+            document.querySelectorAll('[data-drawer-toggle]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var drawer = button.closest('.phone-screen').querySelector('[data-drawer]');
+                    if (drawer) drawer.classList.add('open');
+                });
+            });
+            document.querySelectorAll('[data-drawer-close]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var drawer = button.closest('[data-drawer]');
+                    if (drawer) drawer.classList.remove('open');
+                });
+            });
+            document.querySelectorAll('[data-drawer]').forEach(function (drawer) {
+                drawer.addEventListener('click', function (event) {
+                    if (event.target === drawer) drawer.classList.remove('open');
+                });
+            });
+            updateWidth('390');
+            updateView('calendar');
+        })();
+    </script>
+</body>
+</html>
