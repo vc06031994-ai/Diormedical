@@ -47805,7 +47805,7 @@ button.dior-page-btn {
 
     /* Calendar: keep the local four-tab navigation fully visible. */
     #dior-doctor-app #tab-doc-appointments {
-        padding: 16px 12px 24px !important;
+        padding: 16px 6px 24px !important;
         min-width: 0 !important;
         max-width: 100% !important;
     }
@@ -47889,8 +47889,8 @@ button.dior-page-btn {
         min-width: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
+        padding-right: 6px !important;
+        padding-left: 6px !important;
     }
 
     #dior-doctor-app #tab-doc-appointments-view > .d-flex:first-child {
@@ -48091,12 +48091,153 @@ button.dior-page-btn {
         white-space: normal !important;
         overflow-wrap: anywhere !important;
     }
+
+    /* Appointment tabs use the full phone width with minimal edge padding. */
+    #dior-doctor-app #tab-doc-appointments-book,
+    #dior-doctor-app #tab-doc-appointments-edit {
+        padding-right: 6px !important;
+        padding-left: 6px !important;
+    }
+
+    /* Mobile View Appointments: KPI summary, controls, and rows match the card layout. */
+    #dior-doctor-app #tab-doc-appointments-view > .row.g-3.mb-4 {
+        gap: 10px !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view > .row.g-3.mb-4 > .col-12 {
+        flex: 0 0 calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        max-width: calc(50% - 5px) !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view > .row.g-3.mb-4 .card {
+        min-height: 118px !important;
+        padding: 14px !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view .va-header-container {
+        gap: 12px !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view .va-actions-wrapper {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view .va-actions-wrapper > .dior-bs-search-group {
+        grid-column: 1 / -1 !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view .va-actions-wrapper > div[style*="width"] {
+        width: 100% !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view .va-table-wrapper {
+        overflow-x: hidden !important;
+        padding: 12px 0 !important;
+        box-shadow: none !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table {
+        width: 100% !important;
+        min-width: 0 !important;
+        table-layout: fixed !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table thead {
+        display: none !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody tr:not(#va-empty-row) {
+        position: relative !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        margin-bottom: 12px !important;
+        padding: 12px !important;
+        border: 1px solid #DFE7EF !important;
+        border-radius: 14px !important;
+        background: #fff !important;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, .05) !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 5px 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        white-space: normal !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(1) {
+        position: absolute !important;
+        top: 14px !important;
+        left: 12px !important;
+        width: 24px !important;
+        padding: 0 !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(2) {
+        padding: 0 84px 7px 34px !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(2) .va-user-avatar {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(3) {
+        display: none !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(4) {
+        padding-left: 34px !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(5) {
+        padding-left: 34px !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(6) {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        width: auto !important;
+        padding: 0 !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(7) {
+        padding-top: 10px !important;
+        text-align: left !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(7) > div {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+        width: 100% !important;
+    }
+
+    #dior-doctor-app #tab-doc-appointments-view #va-appointments-table tbody td:nth-child(7) .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
 }
 
 @media (max-width: 575.98px) {
     /* The phone calendar toolbar gets dedicated rows; all controls stay visible. */
     #dior-doctor-app #tab-doc-appointments {
-        padding: 14px 10px 22px !important;
+        padding: 14px 6px 22px !important;
     }
 
     #dior-doctor-app #tab-doc-appointments > .mb-4 h4 {
