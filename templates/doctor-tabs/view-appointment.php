@@ -157,7 +157,7 @@ $status_badges = [
 <section class="dior-tab-panel" id="tab-doc-appointments-view" style="display: none;">
 
     <!-- Hero Header (100% Native Bootstrap 5) -->
-    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 va-page-header">
         <div>
             <h4 class="mb-1 text-dark fw-bold fs-5 d-flex align-items-center gap-2">
                 <span
@@ -176,7 +176,7 @@ $status_badges = [
                 </ol>
             </nav>
         </div>
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-2 va-page-actions">
             <button type="button"
                 class="btn btn-outline-primary rounded-3 px-3 py-2 fw-semibold shadow-sm d-inline-flex align-items-center gap-2"
                 id="va-export-csv-btn">
@@ -188,7 +188,9 @@ $status_badges = [
                 <i class="fas fa-plus"></i> Book Appointment
             </button>
         </div>
-    </div>\n\n<!-- Quick Stat KPI Bar (100% Bootstrap 5 Cards) -->
+    </div>
+
+    <!-- Quick Stat KPI Bar (100% Bootstrap 5 Cards) -->
     <div class="row g-3 mb-4">
         <div class="col-xl-3 col-sm-6 col-12">
             <div

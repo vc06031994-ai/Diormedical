@@ -16,7 +16,9 @@
                 </ol>
             </nav>
         </div>
-    </div>\n\n<!-- Main Content -->
+    </div>
+
+    <!-- Main Content -->
     <div class="section-body">
         <div class="row">
             <div class="col-12">

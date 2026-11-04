@@ -146,6 +146,40 @@
         .secondary-action { min-height: 32px; flex: 1 1 auto; padding: 6px 8px; border: 1px solid #d8e4ef; border-radius: 8px; background: #fff; color: #416482; font-size: 8px; font-weight: 800; }
         .before-form-clip { max-width: 100%; overflow: hidden; }
         .form-reach-note { margin: 8px 0 0; color: #74879a; font-size: 8px; }
+        /* --- View Appointments: corrected mobile layout illustration --- */
+        .screen-content.before-gutter { padding: 14px 38px 22px; }
+        .screen-content.after-gutter { padding: 12px 10px 22px; }
+        .va-page-head h2 { margin: 0; color: #143c65; font-size: 16px; line-height: 1.25; letter-spacing: -.02em; }
+        .va-breadcrumb { margin: 3px 0 0; color: #8191a3; font-size: 8px; }
+        .va-breadcrumb.after { font-size: 8.5px; color: #7a8ea3; }
+        .cta-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 9px 0 10px; }
+        .cta-row.stacked { grid-template-columns: minmax(0, 1fr); }
+        .cta { min-height: 32px; display: flex; align-items: center; justify-content: center; gap: 4px; border: 0; border-radius: 8px; font-size: 9px; font-weight: 800; }
+        .cta.ghost { border: 1px solid #b9d3ea; background: #fff; color: #1b5b96; }
+        .cta.primary { background: var(--blue); color: #fff; }
+        .kpi-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0 0 10px; }
+        .kpi-grid.stacked { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+        .kpi.va { padding: 7px 8px; }
+        .kpi.va b { font-size: 13px; }
+        .kpi.va span { display: block; font-size: 6.5px; letter-spacing: .04em; text-transform: uppercase; }
+        .kpi.va .kpi-foot { display: inline-block; margin-top: 4px; padding: 2px 5px; border-radius: 999px; font-size: 6.5px; font-weight: 800; letter-spacing: 0; text-transform: none; }
+        .kpi.va .f-blue { background: #eaf3fc; color: #1f5f99; }
+        .kpi.va .f-teal { background: #e5f6fb; color: #1f7c96; }
+        .kpi.va .f-green { background: #e8f6ef; color: #288158; }
+        .kpi.va .f-amber { background: #fdf3e0; color: #9a6a15; }
+        .stray-escape { margin: 2px 0 6px; color: #a34949; font: 700 9px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+        .registry { margin-bottom: 10px; padding: 10px; border: 1px solid #e1e9f1; border-radius: 12px; background: #fff; box-shadow: 0 3px 10px rgba(30,62,94,.035); }
+        .registry-title { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; color: #143c65; font-size: 11px; font-weight: 900; }
+        .filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+        .filter-grid .field.wide { grid-column: 1 / -1; }
+        .filter-control { min-height: 30px; display: flex; align-items: center; gap: 4px; padding: 5px 8px; overflow: hidden; border: 1px solid #dfe7ef; border-radius: 7px; background: #fff; color: #52677c; font-size: 8.5px; white-space: nowrap; text-overflow: ellipsis; }
+        .filter-control.select::after { margin-left: auto; color: #8aa0b4; content: "\25BE"; }
+        .filter-control.icon-btn { justify-content: center; color: #fff; border-color: #1a528e; background: #1a528e; font-size: 10px; }
+        .mini-pagination { display: flex; gap: 4px; margin-top: 7px; }
+        .mini-pagination span { width: 21px; height: 19px; display: grid; place-items: center; border: 1px solid #dbe6f0; border-radius: 5px; background: #fff; color: #557087; font-size: 8px; font-weight: 800; }
+        .mini-table.wide { width: 700px; }
+        .mini-table .sub { color: #8b9cae; font-size: 6.5px; }
+        .mini-table .cell-check-box { width: 9px; height: 9px; display: block; border: 1px solid #cfdbe6; border-radius: 3px; background: #fff; }
         .drawer-backdrop { position: absolute; z-index: 8; inset: 0; display: none; background: rgba(16,35,56,.38); }
         .drawer-backdrop.open { display: block; }
         .drawer-panel { width: 82%; height: 100%; max-height: 100%; padding: 13px 10px; overflow: hidden; border-right: 1px solid #e0e8f0; background: #fff; box-shadow: 8px 0 24px rgba(14,39,65,.2); }
@@ -178,7 +212,7 @@
     <main class="page">
         <div class="eyebrow">Dior Medical · Doctor Dashboard</div>
         <h1>Appointments, ready for mobile.</h1>
-        <p class="intro">A device-frame comparison of the four Doctor Dashboard appointment sub-tabs. Switch the preview and viewport below; the “after” view shows the intended phone layout and scroll behavior.</p>
+        <p class="intro">A device-frame comparison of the four Doctor Dashboard appointment sub-tabs. Switch the preview and viewport below; the “after” view shows the intended phone layout and scroll behavior, including the reduced 10px page gutters and the corrected View Appointments fit.</p>
         <div class="notice"><strong>Static visual preview</strong><span>Sample content only — not connected to WordPress or patient data.</span></div>
 
         <div class="controls" aria-label="Preview controls">
@@ -211,7 +245,7 @@
                             <div class="avatar">DR</div>
                         </div>
                         <div class="screen-scroll">
-                            <div class="screen-content">
+                            <div class="screen-content before-gutter">
                                 <div class="screen-view" data-view="calendar">
                                     <div class="view-title-row"><div><h2>Appointment Calendar</h2><p class="small-caption">Your visits and daily schedule</p></div><button class="book-cta">＋ Book</button></div>
                                     <div class="local-tabs"><span class="selected">Calendar</span><span>View</span><span>Book</span><span>Edit</span></div>
@@ -236,16 +270,34 @@
                                 </div>
 
                                 <div class="screen-view" data-view="view">
-                                    <div class="view-title-row"><div><h2>View Appointments</h2><p class="small-caption">Appointments Registry</p></div><button class="book-cta">＋ Book</button></div>
-                                    <div class="mini-kpis"><div class="kpi"><b>128</b><span>Total bookings</span></div><div class="kpi"><b>12</b><span>Upcoming</span></div></div>
-                                    <div class="surface"><p class="screen-kicker">Search &amp; filters</p><div class="form-grid"><div class="field"><label>Search</label><div class="field-value">Patient, doctor...</div></div><div class="field"><label>Doctor</label><div class="field-value">All doctors</div></div><div class="field"><label>Status</label><div class="field-value">All statuses</div></div><div class="field"><label>Date</label><div class="field-value">All dates</div></div></div></div>
-                                    <div class="table-viewport">
-                                        <table class="mini-table"><thead><tr><th>Patient</th><th>Visit</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead><tbody><tr><td class="patient">A. Shah</td><td>Video visit</td><td>Nov 04</td><td><span class="badge">Confirmed</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr><tr><td class="patient">M. Patel</td><td>Follow-up</td><td>Nov 06</td><td><span class="badge">Pending</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr></tbody></table>
+                                    <div class="va-page-head"><h2>View Appointments</h2><p class="va-breadcrumb">Dashboard / Appointments /<br>View Appointments</p></div>
+                                    <div class="cta-row stacked"><button class="cta ghost">Export CSV</button><button class="cta primary">+ Book Appointment</button></div>
+                                    <div class="stray-escape">\n\n</div>
+                                    <div class="kpi-grid stacked">
+                                        <div class="kpi va"><span>Total bookings</span><b>47</b><span class="kpi-foot f-blue">All records across clinic</span></div>
+                                        <div class="kpi va"><span>Upcoming visits</span><b>0</b><span class="kpi-foot f-teal">Scheduled ahead</span></div>
+                                        <div class="kpi va"><span>Completed</span><b>0</b><span class="kpi-foot f-green">Consultations done</span></div>
+                                        <div class="kpi va"><span>Pending action</span><b>45</b><span class="kpi-foot f-amber">Needs review</span></div>
                                     </div>
-                                    <p class="calendar-note warning">Table and row actions are cut off at the screen edge.</p>
+                                    <div class="registry">
+                                        <p class="registry-title">Appointments Registry</p>
+                                        <div class="filter-grid">
+                                            <div class="field wide"><div class="filter-control">Search patient, doctor, UID...</div></div>
+                                            <div class="filter-control select">All Doctors</div>
+                                            <div class="filter-control select">All Statuses</div>
+                                            <div class="filter-control select">All Dates</div>
+                                        </div>
+                                    <div class="table-viewport">
+                                        <table class="mini-table wide"><thead><tr><th class="cell-check"></th><th>Patient</th><th>Consultation</th><th>Date &amp; time</th><th>Contact</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+                                            <tr><td class="cell-check"><span class="cell-check-box"></span></td><td class="patient">test15 15<br><span class="sub">DM-78149 &middot; APT-1507</span></td><td>Asthma follow-up</td><td>Nov 03, 2026<br><span class="sub">01:00 - 02:00 PM</span></td><td>3245670898</td><td><span class="badge">Pending</span></td><td><button class="action">Join</button><button class="action">View</button><button class="action">Reschedule</button></td></tr>
+                                            <tr><td class="cell-check"><span class="cell-check-box"></span></td><td class="patient">test15 15<br><span class="sub">DM-78149 &middot; APT-8757</span></td><td>Asthma review</td><td>Nov 02, 2026<br><span class="sub">04:00 - 05:00 PM</span></td><td>3245670898</td><td><span class="badge">In Progress</span></td><td><button class="action">Join</button><button class="action">View</button></td></tr>
+                                        </tbody></table>
+                                    </div>
+                                    </div>
+                                    <p class="calendar-note warning">Two defects: a literal <code>\n\n</code> printed between the header and the KPI row, and 10px page inset + 28px panel inset = <strong>38px gutters</strong>. Only 314px of the 390px screen is used, so the CTAs and KPI cards stack full width and the registry clips its columns and actions.</p>
                                 </div>
 
-                                <div class="screen-view" data-view="book">
+<div class="screen-view" data-view="book">
                                     <div class="view-title-row"><div><h2>Book Appointment</h2><p class="small-caption">Schedule a consultation</p></div></div>
                                     <div class="surface"><p class="screen-kicker">HIPAAtizer booking form</p><div class="progress"><span></span><span></span><span></span></div><div class="embed-cut"><div class="form-card before-embed"><h3>New appointment request</h3><div class="form-grid"><div class="field"><label>Patient name</label><div class="field-value">Select a patient</div></div><div class="field"><label>Visit type</label><div class="field-value">Telehealth</div></div><div class="field"><label>Date</label><div class="field-value">Choose date</div></div><div class="field"><label>Time</label><div class="field-value">Choose time</div></div></div><button class="primary-action">Continue</button></div></div><p class="calendar-note warning">Embedded form has a fixed width; right edge and submit action can disappear.</p></div>
                                 </div>
@@ -300,7 +352,7 @@
                             <div class="avatar">DR</div>
                         </div>
                         <div class="screen-scroll">
-                            <div class="screen-content">
+                            <div class="screen-content after-gutter">
                                 <div class="screen-view" data-view="calendar">
                                     <div class="view-title-row"><div><h2>Appointment Calendar</h2><p class="small-caption">Your visits and daily schedule</p></div><button class="book-cta">＋ Book</button></div>
                                     <div class="local-tabs"><span class="selected">Calendar</span><span>View</span><span>Book</span><span>Edit</span></div>
@@ -325,17 +377,36 @@
                                 </div>
 
                                 <div class="screen-view" data-view="view">
-                                    <div class="view-title-row"><div><h2>View Appointments</h2><p class="small-caption">Appointments Registry</p></div><button class="book-cta">＋ Book</button></div>
-                                    <div class="mini-kpis"><div class="kpi"><b>128</b><span>Total bookings</span></div><div class="kpi"><b>12</b><span>Upcoming</span></div></div>
-                                    <div class="surface"><p class="screen-kicker">Search &amp; filters</p><div class="form-grid"><div class="field"><label>Search</label><div class="field-value">Patient, doctor...</div></div><div class="field"><label>Doctor</label><div class="field-value">All doctors</div></div><div class="field"><label>Status</label><div class="field-value">All statuses</div></div><div class="field"><label>Date</label><div class="field-value">All dates</div></div></div></div>
-                                    <div class="table-viewport after-scroll">
-                                        <table class="mini-table"><thead><tr><th>Patient</th><th>Visit</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead><tbody><tr><td class="patient">A. Shah</td><td>Video visit</td><td>Nov 04</td><td><span class="badge">Confirmed</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr><tr><td class="patient">M. Patel</td><td>Follow-up</td><td>Nov 06</td><td><span class="badge">Pending</span></td><td><button class="action">View</button> <button class="action">Edit</button></td></tr></tbody></table>
+                                    <div class="va-page-head"><h2>View Appointments</h2><p class="va-breadcrumb after">Dashboard / Appointments / View Appointments</p></div>
+                                    <div class="cta-row"><button class="cta ghost">Export CSV</button><button class="cta primary">+ Book Appointment</button></div>
+                                    <div class="kpi-grid">
+                                        <div class="kpi va"><span>Total bookings</span><b>47</b><span class="kpi-foot f-blue">All records</span></div>
+                                        <div class="kpi va"><span>Upcoming visits</span><b>0</b><span class="kpi-foot f-teal">Scheduled ahead</span></div>
+                                        <div class="kpi va"><span>Completed</span><b>0</b><span class="kpi-foot f-green">Consultations done</span></div>
+                                        <div class="kpi va"><span>Pending action</span><b>45</b><span class="kpi-foot f-amber">Needs review</span></div>
                                     </div>
-                                    <div class="scroll-hint"><span>Swipe table horizontally</span><strong>→ actions</strong></div>
-                                    <p class="calendar-note success">Filters wrap into the available width; action buttons remain inside the scroll area.</p>
+                                    <div class="registry">
+                                        <p class="registry-title">Appointments Registry</p>
+                                        <div class="filter-grid">
+                                            <div class="field wide"><div class="filter-control">Search patient, doctor, UID...</div></div>
+                                            <div class="filter-control select">All Doctors</div>
+                                            <div class="filter-control select">All Statuses</div>
+                                            <div class="filter-control select">All Dates</div>
+                                            <div class="filter-control icon-btn">&#8635;</div>
+                                        </div>
+                                    <div class="table-viewport after-scroll">
+                                        <table class="mini-table wide"><thead><tr><th class="cell-check"></th><th>Patient</th><th>Consultation</th><th>Date &amp; time</th><th>Contact</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+                                            <tr><td class="cell-check"><span class="cell-check-box"></span></td><td class="patient">test15 15<br><span class="sub">DM-78149 &middot; APT-1507</span></td><td>Asthma follow-up</td><td>Nov 03, 2026<br><span class="sub">01:00 - 02:00 PM</span></td><td>3245670898</td><td><span class="badge">Pending</span></td><td><button class="action">Join</button><button class="action">View</button><button class="action">Reschedule</button></td></tr>
+                                            <tr><td class="cell-check"><span class="cell-check-box"></span></td><td class="patient">test15 15<br><span class="sub">DM-78149 &middot; APT-8757</span></td><td>Asthma review</td><td>Nov 02, 2026<br><span class="sub">04:00 - 05:00 PM</span></td><td>3245670898</td><td><span class="badge">In Progress</span></td><td><button class="action">Join</button><button class="action">View</button></td></tr>
+                                        </tbody></table>
+                                    </div>
+                                        <div class="scroll-hint"><span>Swipe the table horizontally</span><strong>&rarr; actions</strong></div>
+                                        <div class="mini-pagination"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                                    </div>
+                                    <p class="calendar-note success">The panel inset is gone, so the page uses almost the whole screen width: <strong>10px gutters at 390px, 8px at 360px</strong>. Heading and breadcrumb fit one line, Export CSV / Book Appointment sit side by side, the four KPIs form a compact 2 &times; 2 grid, filters share two columns and the registry scrolls inside its own container &mdash; no horizontal page scroll.</p>
                                 </div>
 
-                                <div class="screen-view" data-view="book">
+<div class="screen-view" data-view="book">
                                     <div class="view-title-row"><div><h2>Book Appointment</h2><p class="small-caption">Schedule a consultation</p></div></div>
                                     <div class="surface"><p class="screen-kicker">HIPAAtizer booking form</p><div class="progress"><span></span><span></span><span></span></div><div class="embed-cut"><div class="form-card embed-fluid"><h3>New appointment request</h3><div class="form-grid single"><div class="field"><label>Patient name</label><div class="field-value">Select a patient</div></div><div class="field"><label>Visit type</label><div class="field-value">Telehealth</div></div><div class="field"><label>Date</label><div class="field-value">Choose date</div></div><div class="field"><label>Time</label><div class="field-value">Choose time</div></div></div><button class="primary-action">Continue</button></div></div><p class="calendar-note success">Embed fits the phone; fields stack and the Continue action stays visible.</p></div>
                                 </div>
@@ -379,7 +450,7 @@
                 </div>
             </article>
         </section>
-        <p class="page-foot">Before / after static illustration · Use the controls above to inspect Calendar, View, Book and Edit at 360px or 390px.</p>
+        <p class="page-foot">Before / after static illustration · Use the controls above to inspect Calendar, View, Book and Edit at 360px or 390px. Desktop layout (widths of 992px and up) is unchanged.</p>
     </main>
     <script>
         (function () {
