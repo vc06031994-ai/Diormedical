@@ -310,11 +310,14 @@ window.diorRawEvents = <?php echo $events_json; ?>;
         if (!calEl || calEl.dataset.inited === 'true') return;
         calEl.dataset.inited = 'true';
 
+        var calendarPhoneQuery = window.matchMedia('(max-width: 575.98px)');
+        var isPhoneCalendar = calendarPhoneQuery.matches;
         var calendar = new FullCalendar.Calendar(calEl, {
             initialView: 'dayGridMonth',
-            initialDate: '2026-10-21',
+            initialDate: new Date(),
             firstDay: 0,
-            dayMaxEvents: 3,
+            dayMaxEvents: isPhoneCalendar ? 1 : 3,
+            dayHeaderFormat: isPhoneCalendar ? { weekday: 'narrow' } : { weekday: 'short' },
             headerToolbar: false,
             height: 'auto',
             eventTimeFormat: {
@@ -364,6 +367,23 @@ window.diorRawEvents = <?php echo $events_json; ?>;
 
         calendar.render();
         window.diorGlobalFullCalendar = calendar;
+
+        // Keep FullCalendar's measurements and phone-specific month options in sync on resize.
+        var calendarResizeTimer = null;
+        window.addEventListener('resize', function() {
+            window.clearTimeout(calendarResizeTimer);
+            calendarResizeTimer = window.setTimeout(function() {
+                var nextIsPhoneCalendar = calendarPhoneQuery.matches;
+                if (nextIsPhoneCalendar !== isPhoneCalendar) {
+                    calendar.setOption('dayMaxEvents', nextIsPhoneCalendar ? 1 : 3);
+                    calendar.setOption('dayHeaderFormat', nextIsPhoneCalendar
+                        ? { weekday: 'narrow' }
+                        : { weekday: 'short' });
+                    isPhoneCalendar = nextIsPhoneCalendar;
+                }
+                calendar.updateSize();
+            }, 90);
+        }, { passive: true });
 
         // Toolbar Buttons
         var prevBtn = document.getElementById('dior-cal-prev-btn');
