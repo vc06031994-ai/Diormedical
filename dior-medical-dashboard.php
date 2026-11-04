@@ -1983,9 +1983,9 @@ class Dior_Medical_Auth
 
             <div class="dior-auth-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
                 <a href="<?php echo esc_url($dash_url); ?>"
-                    class="dior-btn-auth-primary"><?php echo esc_html($dash_label); ?></a>
+                    class="dior-btn-auth-primary"><span><?php echo esc_html($dash_label); ?></span></a>
                 <a href="<?php echo esc_url(wp_logout_url(home_url('/diro-login/'))); ?>"
-                    class="dior-btn-auth-secondary">Sign Out</a>
+                    class="dior-btn-auth-secondary"><span>Sign Out</span></a>
             </div>
 
             <?php else: ?>
