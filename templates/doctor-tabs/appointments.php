@@ -252,6 +252,103 @@ $doctor_calendar_json = wp_json_encode($doctor_calendar_events, JSON_HEX_TAG | J
     #dior-doc-calendar-card .dior-doc-bs-cal-event { font-size: 7px !important; }
 }
 
+
+/* Final mobile layout corrections: full-bleed panel, balanced stat cards and compact calendar events. */
+@media (max-width: 767.98px) {
+    #tab-doc-appointments {
+        box-sizing: border-box !important;
+        position: relative;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        padding: 14px 12px 24px !important;
+        overflow-x: clip !important;
+    }
+
+    #tab-doc-appointments,
+    #tab-doc-appointments * {
+        min-width: 0;
+    }
+
+    #tab-doc-appointments > .mb-4:first-child,
+    #tab-doc-cal-stats,
+    #dior-doc-calendar-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #dior-doc-cal-stats {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        --bs-gutter-x: 10px;
+        --bs-gutter-y: 10px;
+    }
+    #dior-doc-cal-stats > [class*="col-"] {
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        max-width: 50% !important;
+    }
+    #dior-doc-cal-stats .card {
+        width: 100% !important;
+        min-height: 112px !important;
+        height: 100%;
+    }
+
+    #dior-doc-calendar-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    #dior-doc-calendar-card > .card-body {
+        padding: 10px !important;
+    }
+    #dior-doc-calendar-card > .card-body > .row {
+        display: flex !important;
+        flex-direction: column !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    #dior-doc-calendar-card > .card-body > .row > [class*="col-"] {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #dior-doc-calendar-card .table-responsive,
+    #dior-doc-calendar-card .dior-bs-cal-table {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #dior-doc-calendar-card .dior-doc-bs-cal-cell {
+        height: 64px !important;
+        padding: 4px 1px !important;
+    }
+    #dior-doc-calendar-card .dior-doc-bs-cal-day-head {
+        justify-content: center !important;
+    }
+    /* On narrow screens, use compact colored markers; full patient details remain in the selected-day panel. */
+    #dior-doc-calendar-card .dior-doc-bs-cal-event {
+        height: 5px !important;
+        min-height: 5px !important;
+        padding: 0 !important;
+        margin: 3px 2px !important;
+        border-radius: 5px !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        text-indent: -9999px;
+        white-space: nowrap !important;
+    }
+    #dior-doc-calendar-card .dior-doc-bs-cal-cell > .small {
+        font-size: 8px !important;
+        line-height: 1.1 !important;
+    }
+}
+@media (max-width: 380px) {
+    #tab-doc-appointments { padding-left: 8px !important; padding-right: 8px !important; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-cell { height: 58px !important; }
+}
+
 </style>
 
 <script>
