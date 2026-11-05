@@ -73,6 +73,9 @@
         var backdrop = document.getElementById('dior-doc-backdrop');
         if (sidebar) sidebar.classList.remove('mobile-open');
         if (backdrop) backdrop.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('open');
+        document.body.classList.remove('dior-drawer-open');
+        document.body.style.removeProperty('overflow');
     };
 
     // Mobile drawer open helper
@@ -84,11 +87,32 @@
         if (isOpen) {
             sidebar.classList.remove('mobile-open');
             if (backdrop) backdrop.classList.remove('active');
+            if (backdrop) backdrop.classList.remove('open');
+            document.body.classList.remove('dior-drawer-open');
+            document.body.style.removeProperty('overflow');
         } else {
             sidebar.classList.add('mobile-open');
             if (backdrop) backdrop.classList.add('active');
+            if (backdrop) backdrop.classList.add('open');
+            document.body.classList.add('dior-drawer-open');
+            document.body.style.overflow = 'hidden';
         }
     };
+
+    document.addEventListener('pointerdown', function (event) {
+        var backdrop = document.getElementById('dior-doc-backdrop');
+        var sidebar = document.getElementById('dior-doc-sidebar');
+        if (!backdrop || !sidebar || !sidebar.classList.contains('mobile-open')) return;
+        if (event.target === backdrop || backdrop.contains(event.target)) {
+            window.diorDocCloseMobile();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            window.diorDocCloseMobile();
+        }
+    });
 
     // Main tab switcher
     window.diorDocSwitchTab = function (tabId, updateUrl) {

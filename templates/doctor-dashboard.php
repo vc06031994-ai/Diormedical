@@ -20,6 +20,9 @@
                         <?php endif; ?>
                     </a>
                 </div>
+                <button type="button" class="dior-side-close btn" aria-label="Close menu" onclick="diorDocCloseMobile()">
+                    <i class="fas fa-xmark"></i>
+                </button>
             </div>
 
             <!-- Doctor Identity Card Removed -->

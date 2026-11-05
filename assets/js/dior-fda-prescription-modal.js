@@ -520,6 +520,32 @@
             customNotes: customNotes
         };
 
+        var medSignature = [
+            medItem.fullMedName,
+            medItem.fullDosage,
+            medItem.fullFrequency,
+            medItem.fullDuration,
+            medItem.instructions
+        ].join('|');
+        var alreadyAdded = s.medicationsList.some(function(existing) {
+            return [
+                existing.fullMedName,
+                existing.fullDosage,
+                existing.fullFrequency,
+                existing.fullDuration,
+                existing.instructions
+            ].join('|') === medSignature;
+        });
+
+        if (alreadyAdded) {
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.focus();
+            }
+            window.diorFdaUpdateAllUI();
+            return false;
+        }
+
         s.medicationsList.push(medItem);
         window.diorFdaRenderPrescribedList();
 
@@ -551,6 +577,7 @@
         if (notesArea) notesArea.value = '';
 
         window.diorFdaUpdateAllUI();
+        return true;
     };
 
     /**
@@ -617,6 +644,8 @@
         if (e && e.preventDefault) e.preventDefault();
 
         var s = window.diorFdaState;
+        var submitButton = document.getElementById('dior-fda-btn-submit');
+        if (submitButton && submitButton.disabled) return;
         var patientSelect = document.getElementById('dior-fda-patient-select');
         var patientId = patientSelect ? patientSelect.value : '';
         var patientName = patientSelect ? (patientSelect.options[patientSelect.selectedIndex].text.split('(')[0].trim()) : 'Patient';
@@ -735,6 +764,9 @@
 
                 // Reset state
                 s.medicationsList = [];
+                s.brandName = '';
+                s.genericName = '';
+                s.strength = '';
                 window.diorFdaRenderPrescribedList();
                 window.diorCloseFdaPrescriptionModal();
 

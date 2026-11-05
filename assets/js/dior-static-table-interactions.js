@@ -92,6 +92,7 @@
             return !isDashboardOverview(input) &&
                    input.id !== 'dior-doc-search' &&
                    input.id !== 'dior-patient-search' &&
+                   input.id !== 'dior-fda-med-search' &&
                    !input.closest('.dior-top-search, .dior-topbar, header');
         });
 

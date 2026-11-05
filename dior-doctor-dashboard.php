@@ -2158,6 +2158,12 @@ class Dior_Doctor_Dashboard
 
         global $wpdb;
         $table_name = $wpdb->prefix . 'dior_prescriptions';
+        if ($wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $table_name)) !== $table_name) {
+            Dior_DB::install_schema();
+        }
+        if ($wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $table_name)) !== $table_name) {
+            wp_send_json_error(["message" => "Database error. The prescriptions table could not be created. Please deactivate and reactivate the plugin, or contact the administrator."]);
+        }
         // Accept either the WordPress user ID or the site's existing patient ID (e.g. DM-10001).
         $patient_identifier = sanitize_text_field($_POST['patient_id'] ?? '');
         $patient_id = ctype_digit($patient_identifier) ? absint($patient_identifier) : 0;

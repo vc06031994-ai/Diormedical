@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 
 class Dior_DB
 {
-    const DB_VERSION = '4.0.4';
+    const DB_VERSION = '4.0.5';
     const DB_VERSION_OPTION = 'dior_medical_db_version';
 
     /**
@@ -33,7 +33,11 @@ class Dior_DB
     public static function check_and_update_schema()
     {
         $current_version = get_option(self::DB_VERSION_OPTION, '0.0.0');
-        if (version_compare($current_version, self::DB_VERSION, '<')) {
+        global $wpdb;
+        $prescriptions_table = $wpdb->prefix . 'dior_prescriptions';
+        $prescriptions_missing = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $prescriptions_table)) !== $prescriptions_table;
+
+        if (version_compare($current_version, self::DB_VERSION, '<') || $prescriptions_missing) {
             self::install_schema();
             self::migrate_legacy_data();
             update_option(self::DB_VERSION_OPTION, self::DB_VERSION);

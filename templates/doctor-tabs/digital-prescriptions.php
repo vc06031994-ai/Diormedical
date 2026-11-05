@@ -148,8 +148,6 @@ foreach ($patients_query as $pq) {
 
                 <div class="va-actions-wrapper">
                     <div class="input-group input-group-sm dior-bs-search-group" style="width: 240px;">
-                        <span class="input-group-text bg-white border-end-0 text-muted ps-2 pe-1"><i
-                                class="fas fa-search"></i></span>
                         <input type="text" class="form-control border-start-0 ps-0" placeholder="Search records..."
                             onkeyup="diorFilterPrescriptions(this.value)">
                     </div>
@@ -391,7 +389,6 @@ foreach ($patients_query as $pq) {
                 <label for="dior-fda-med-search">Medication Name / Search (FDA Catalog) <span
                         class="dior-req-star">*</span></label>
                 <div class="dior-search-input-wrap">
-                    <i class="fas fa-magnifying-glass dior-search-icon-left"></i>
                     <input type="text" id="dior-fda-med-search"
                         class="dior-login-input dior-search-input-padded form-control"
                         placeholder="Type to search FDA medications (e.g. Metformin, Sporanox, Amoxicillin...) or enter custom drug"

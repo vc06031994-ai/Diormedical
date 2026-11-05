@@ -1,4 +1,4 @@
-<section class="dior-tab-panel" id="tab-doc-patients-records" style="display: none;">
+<section class="dior-tab-panel dior-appt-screen" id="tab-doc-patients-records" style="display: none;">
     <!-- Breadcrumb Header -->
     <div class="mb-4" style="display: flex; justify-content: space-between; align-items: center;">
         <div>
@@ -116,35 +116,35 @@
                         ?>
                         <tr class="pr-row"
                             data-search="<?php echo strtolower(esc_attr($r[1] . ' ' . $r[0] . ' ' . $r[5])); ?>">
-                            <td style="text-align: center;">
+                            <td data-label="Select" style="text-align: center;">
                                 <input type="checkbox" class="dior-checkbox pr-row-checkbox form-check-input">
                             </td>
-                            <td><?php echo esc_html($r[0]); ?></td>
-                            <td style="font-weight: 500; color: #1E293B;"><?php echo esc_html($r[1]); ?></td>
-                            <td>
+                            <td data-label="Patient ID"><?php echo esc_html($r[0]); ?></td>
+                            <td data-label="Patient" style="font-weight: 500; color: #1E293B;"><?php echo esc_html($r[1]); ?></td>
+                            <td data-label="Gender">
                                 <div style="display: flex; align-items: center; gap: 6px;">
                                     <i class="<?php echo $r[2] === 'Male' ? 'fas fa-mars' : 'fas fa-venus'; ?>"
                                         style="color: <?php echo esc_attr($r[3]); ?>;"></i>
                                     <span><?php echo esc_html($r[2]); ?></span>
                                 </div>
                             </td>
-                            <td>
+                            <td data-label="Admission date">
                                 <div style="display: flex; align-items: center; gap: 6px;">
                                     <i class="far fa-calendar" style="color: #3B82F6;"></i>
                                     <span><?php echo esc_html($r[4]); ?></span>
                                 </div>
                             </td>
-                            <td><?php echo esc_html($r[5]); ?></td>
-                            <td>
+                            <td data-label="Diagnosis"><?php echo esc_html($r[5]); ?></td>
+                            <td data-label="Follow-up date">
                                 <div style="display: flex; align-items: center; gap: 6px;">
                                     <i class="far fa-calendar" style="color: #3B82F6;"></i>
                                     <span><?php echo esc_html($r[6]); ?></span>
                                 </div>
                             </td>
-                            <td>
+                            <td data-label="Status">
                                 <span class="dior-st <?php echo esc_attr($r[8]); ?>"><?php echo esc_html($r[7]); ?></span>
                             </td>
-                            <td>
+                            <td data-label="Actions">
                                 <div class="va-row-actions" style="justify-content: center;">
                                     <button class="va-action-btn-sm va-btn-edit btn"><i class="fas fa-pen"></i></button>
                                     <button class="va-action-btn-sm va-btn-delete btn"><i class="fas fa-trash"></i></button>
@@ -180,6 +180,221 @@
         border-radius: 20px;
         font-size: 12px;
         font-weight: 600;
+    }
+
+    @media (max-width: 767.98px) {
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records,
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records *,
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records *::before,
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records *::after {
+            box-sizing: border-box !important;
+        }
+
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records.dior-tab-panel {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+            padding: 14px 0 24px !important;
+            overflow-x: clip;
+        }
+
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records .view-appointment-card,
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records .va-header-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        #dior-doctor-app #dior-doc-content #tab-doc-patients-records .view-appointment-card {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            overflow: hidden;
+        }
+
+        #tab-doc-patients-records > .mb-4:first-child {
+            align-items: flex-start !important;
+        }
+
+        #tab-doc-patients-records > .mb-4:first-child .breadcrumb-list {
+            display: none !important;
+        }
+
+        #tab-doc-patients-records .dior-subtab-nav-bar {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            padding: 0 !important;
+        }
+
+        #tab-doc-patients-records .dior-subtab-pill {
+            width: 100%;
+            min-height: 40px;
+            margin: 0 !important;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        #tab-doc-patients-records .dior-subtab-pill:last-child {
+            grid-column: 1 / -1;
+        }
+
+        #tab-doc-patients-records .va-header-container {
+            align-items: stretch !important;
+            flex-direction: column;
+            padding: 12px 12px 10px !important;
+        }
+
+        #tab-doc-patients-records .va-title-container {
+            padding-bottom: 10px !important;
+        }
+
+        #tab-doc-patients-records .va-header-actions,
+        #tab-doc-patients-records .dior-bs-search-group {
+            width: 100% !important;
+            margin: 0 !important;
+        }
+
+        #tab-doc-patients-records .va-header-actions {
+            flex-wrap: wrap;
+        }
+
+        #tab-doc-patients-records .va-actions-group {
+            width: 100%;
+        }
+
+        #tab-doc-patients-records .va-actions-group .va-icon-btn {
+            flex: 1;
+        }
+
+        #tab-doc-patients-records .va-table-wrapper {
+            overflow: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table {
+            display: block;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            table-layout: fixed !important;
+            background: transparent !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table thead {
+            display: none;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody {
+            display: grid;
+            gap: 10px;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody tr.pr-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 14px;
+            padding: 14px 12px 12px 44px;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, .06);
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody tr.pr-row[data-filter-hidden="true"] {
+            display: none;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td {
+            min-width: 0;
+            padding: 0 !important;
+            border: 0 !important;
+            background: transparent !important;
+            white-space: normal !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(1) {
+            position: absolute;
+            left: 12px;
+            top: 16px;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(2) {
+            grid-column: 1 / 2;
+            grid-row: 2;
+            font-size: 11px !important;
+            color: #64748B !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(2)::before {
+            content: attr(data-label) ": ";
+            font-weight: 600;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(3) {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            padding-right: 88px !important;
+            font-size: 15px !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+            justify-self: end;
+            color: #64748B !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(5),
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(6),
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(7) {
+            display: block;
+            font-size: 12px !important;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(5)::before,
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(6)::before,
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(7)::before {
+            content: attr(data-label);
+            display: block;
+            margin-bottom: 4px;
+            color: #94A3B8;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(6) {
+            grid-column: 1 / -1;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(8) {
+            position: absolute;
+            top: 13px;
+            right: 12px;
+        }
+
+        #tab-doc-patients-records #dior-patient-records-table tbody td:nth-child(9) {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid #F1F5F9 !important;
+            padding-top: 10px !important;
+        }
+
+        #tab-doc-patients-records .va-row-actions {
+            gap: 8px;
+        }
     }
 </style>
 

@@ -3789,7 +3789,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 }
 
 .dior-search-input-padded {
-    padding-left: 36px !important;
+    padding-left: 12px !important;
     padding-right: 90px !important;
 }
 
@@ -8272,6 +8272,42 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
         transform: translateX(-100%) !important;
         transition: transform 0.3s ease !important;
         overflow-y: auto !important;
+        z-index: 100001 !important;
+    }
+
+    .dior-doctor-wrap .dior-drawer-backdrop,
+    #dior-doc-backdrop {
+        z-index: 100000 !important;
+    }
+
+    .dior-doctor-wrap .dior-side-header {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .dior-doctor-wrap .dior-side-close {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        z-index: 2 !important;
+        display: none !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        background: rgba(255, 255, 255, .12) !important;
+        color: #fff !important;
+        flex: 0 0 auto !important;
+    }
+
+    .dior-doctor-wrap .dior-side.mobile-open .dior-side-close,
+    .dior-doctor-wrap .dior-side.open .dior-side-close {
+        display: inline-flex !important;
     }
 
     .dior-doctor-wrap .dior-side.open,
@@ -27573,6 +27609,12 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     .dior-patient-portal-wrap .dior-card,
     .dior-patient-portal-wrap .dior-box {
         max-width: 100% !important;
+    }
+
+    .va-table{
+        padding:10px !important;
+        border-radius: 0 !important;
+        border:0 !important;
     }
 }
 
@@ -53947,7 +53989,8 @@ a.va-btn-primary:hover {
 @media (min-width: 1400px) {
     :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .dior-side {
         width: 100% !important;
-        max-width: 300px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;

@@ -973,10 +973,14 @@ window.diorDocOpenMobile = function () {
     if (sidebar.classList.contains('mobile-open')) {
         sidebar.classList.remove('mobile-open');
         if (isMobile && backdrop) backdrop.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('open');
     } else {
         sidebar.classList.add('mobile-open');
         if (isMobile && backdrop) backdrop.classList.add('active');
+        if (backdrop) backdrop.classList.add('open');
     }
+    document.body.classList.toggle('dior-drawer-open', Boolean(sidebar.classList.contains('mobile-open')));
+    document.body.style.overflow = sidebar.classList.contains('mobile-open') ? 'hidden' : '';
 };
 
 window.diorDocCloseMobile = function () {
@@ -984,6 +988,9 @@ window.diorDocCloseMobile = function () {
     const backdrop = document.getElementById('dior-doc-backdrop');
     if (sidebar) sidebar.classList.remove('mobile-open');
     if (backdrop) backdrop.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('open');
+    document.body.classList.remove('dior-drawer-open');
+    document.body.style.removeProperty('overflow');
 };
 
 // Search patients with pagination reset
