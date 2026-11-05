@@ -51,7 +51,7 @@ if (empty($patients)) {
         <div>
             <ul class="va-breadcrumb-list"
                 style="display:flex;gap:8px;list-style:none;padding:0;margin:0;align-items:center;">
-                <li><a href="#"><i class="fas fa-house" style="font-size:14px;color:#4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="font-size:14px;color:#1A528E;"></i></a></li>
                 <li><span style="color:#94A3B8;">/</span></li>
                 <li class="active"><span style="color:#1E293B;font-weight:700;font-size:14px;">Feedback &amp;
                         Reviews</span></li>

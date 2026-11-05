@@ -6433,7 +6433,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
     height: 36px !important;
     border-radius: 10px !important;
     background: #EEF2FF !important;
-    color: #4F46E5 !important;
+    color: #1A528E !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -7205,8 +7205,8 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
     border-radius: 10px !important;
     font-size: 13.5px !important;
     font-weight: 600 !important;
-    color: #64748B !important;
-    background: #F8FAFC !important;
+    color: #FFFFFF !important;
+    background: #1A528E !important;
     border: 1px solid #E2E8F0 !important;
     cursor: pointer !important;
     transition: all 0.2s ease !important;
@@ -7215,16 +7215,11 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
     gap: 8px !important;
 }
 
-.dior-subtab-pill:hover {
-    background: #EEF2FF !important;
-    color: #4F46E5 !important;
-    border-color: #C7D2FE !important;
-}
 
 .dior-subtab-pill.active {
-    background: linear-gradient(135deg, #4F46E5, #6366F1) !important;
+    background: #1A528E !important;
     color: #FFFFFF !important;
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
 }
 
@@ -9985,12 +9980,12 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 
 .dior-patient-portal-wrap .dior-appt-sidebar-btn.active {
     background: #EEF2FF;
-    color: #4F46E5;
+    color: #1A528E;
     font-weight: 600;
 }
 
 .dior-patient-portal-wrap .dior-appt-sidebar-btn.active i {
-    color: #4F46E5;
+    color: #1A528E;
 }
 
 .dior-patient-portal-wrap .dior-appt-content {
@@ -10241,7 +10236,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 
     .dior-patient-portal-wrap .medidash-badge.badge-blue {
         background: #E0E7FF;
-        color: #4F46E5;
+        color: #1A528E;
     }
 
     .dior-patient-portal-wrap .medidash-badge.badge-green {
@@ -10275,7 +10270,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 
     .dior-patient-portal-wrap .medidash-action-btn.edit {
         background: #E0E7FF;
-        color: #4F46E5;
+        color: #1A528E;
     }
 
     .dior-patient-portal-wrap .medidash-action-btn.edit:hover {
@@ -10451,7 +10446,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .table-title-section .title-accent {
     width: 36px !important;
     height: 3px !important;
-    background: #4F46E5 !important;
+    background: #1A528E !important;
     border-radius: 2px !important;
 }
 
@@ -10490,7 +10485,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 }
 
 :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .search-container .search-input:focus {
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
 }
 
@@ -10644,7 +10639,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 
 /* Additional Master Table Rules for Upcoming & Actions */
 :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .action-btn-primary {
-    background: #4F46E5 !important;
+    background: #1A528E !important;
 }
 
 :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .action-btn-primary:hover {
@@ -10658,7 +10653,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
     border-radius: 4px !important;
     border: 1.5px solid #CBD5E1 !important;
     cursor: pointer !important;
-    accent-color: #4F46E5 !important;
+    accent-color: #1A528E !important;
     vertical-align: middle !important;
 }
 
@@ -10744,7 +10739,7 @@ body .dior-auth-wrap .dior-btn-auth-secondary:hover {
 }
 
 :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .master-pagination .page-num.active {
-    background: #4F46E5 !important;
+    background: #1A528E !important;
     color: #FFFFFF !important;
     border-radius: 50% !important;
     font-weight: 700 !important;
@@ -18305,7 +18300,7 @@ div:where(.swal2-container).swal2-toast-shown .swal2-html-container,
 div:where(.swal2-container).swal2-toast-shown .swal2-timer-progress-bar,
 .swal2-container.swal2-toast-shown .swal2-timer-progress-bar {
     height: 3px !important;
-    background: linear-gradient(90deg, #4F46E5, #10B981) !important;
+    background: linear-gradient(90deg, #1A528E, #10B981) !important;
 }
 
 div:where(.swal2-container),
@@ -26257,7 +26252,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .dior-patient-portal-wrap .dior-topbar .dior-msg-btn:hover,
 .dior-patient-portal-wrap .dior-topbar .dior-notif-btn:hover {
-    color: #4F46E5 !important;
+    color: #1A528E !important;
     border-color: #C7D2FE !important;
 }
 
@@ -26271,7 +26266,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     align-items: center !important;
     justify-content: center !important;
     background: #EEF2FF !important;
-    color: #4F46E5 !important;
+    color: #1A528E !important;
 }
 
 .dior-patient-portal-wrap .dior-tab-panel:not(#tab-overview) .header-icon-wrapper i,
@@ -26437,8 +26432,8 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .dior-patient-portal-wrap .dior-static-modal-footer .primary {
-    background: #4F46E5;
-    border-color: #4F46E5;
+    background: #1A528E;
+    border-color: #1A528E;
     color: #fff;
 }
 
@@ -26482,7 +26477,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     height: 42px;
     border-radius: 10px;
     background: #EEF2FF;
-    color: #4F46E5;
+    color: #1A528E;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26922,7 +26917,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     min-height: 3px !important;
     margin: 7px 0 0 !important;
     padding: 0 !important;
-    background: #4F46E5 !important;
+    background: #1A528E !important;
     border: 0 !important;
     border-radius: 4px !important;
 }
@@ -27659,9 +27654,9 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .dior-static-pagination .va-page-btn.active {
-    background: #4F46E5 !important;
+    background: #1A528E !important;
     color: #FFFFFF !important;
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
 }
 
 .dior-static-pagination .va-page-btn:disabled {
@@ -27944,7 +27939,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     height: 3px !important;
     margin-top: 8px !important;
     border-radius: 3px !important;
-    background: #4f46e5 !important;
+    background: #1A528E !important;
 }
 
 /* Header search and action controls. */
@@ -29804,12 +29799,12 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .pp-nav-tabs a:hover {
-    color: #4F46E5;
+    color: #1A528E;
 }
 
 .pp-nav-tabs a.active {
-    color: #4F46E5;
-    border-bottom-color: #4F46E5;
+    color: #1A528E;
+    border-bottom-color: #1A528E;
 }
 
 .pp-nav-tabs a i {
@@ -29851,7 +29846,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     width: 40px;
     height: 40px;
     background-color: #E0E7FF;
-    color: #4F46E5;
+    color: #1A528E;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -30016,7 +30011,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .pp-table td strong {
-    color: #4F46E5;
+    color: #1A528E;
     font-weight: 600;
 }
 
@@ -30044,7 +30039,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .pp-st-badge.maint {
     background-color: #E0E7FF;
-    color: #4F46E5;
+    color: #1A528E;
 }
 
 /* Info Tables for other tabs */
@@ -30811,16 +30806,16 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .notifications-tab-panel .stat-card-indigo .stat-glow {
-    background: #4f46e5 !important;
+    background: #1A528E !important;
 }
 
 .notifications-tab-panel .text-indigo {
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .stat-card-indigo .stat-icon-wrapper {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .badge-indigo {
@@ -30883,7 +30878,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .notifications-tab-panel .segmented-tab.active {
     background: #ffffff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -30898,11 +30893,11 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .notifications-tab-panel .segmented-tab.active .count-pill {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .btn-primary-gradient {
-    background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+    background: linear-gradient(135deg, #1A528E, #3b82f6) !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 8px !important;
@@ -31100,7 +31095,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .notifications-tab-panel .dismissible-chip {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
     padding: 4px 10px !important;
     border-radius: 20px !important;
     font-weight: 600 !important;
@@ -31137,7 +31132,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
     top: 0 !important;
     bottom: 0 !important;
     width: 4px !important;
-    background: #4f46e5 !important;
+    background: #1A528E !important;
 }
 
 .notifications-tab-panel .type-icon-wrapper {
@@ -31154,7 +31149,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .notifications-tab-panel .notification-type-user .type-icon-wrapper {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .notification-type-security .type-icon-wrapper {
@@ -31179,7 +31174,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .notifications-tab-panel .notification-type-update .type-icon-wrapper {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .notification-title {
@@ -31204,7 +31199,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .notifications-tab-panel .btn-inline-action {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
     border-radius: 6px !important;
     font-weight: 600 !important;
     font-size: 12px !important;
@@ -31281,7 +31276,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .appointment-form-wrapper .card-inside-title {
-    color: #4F46E5 !important;
+    color: #1A528E !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     margin-bottom: 20px !important;
@@ -31313,7 +31308,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 .appointment-form-wrapper .form-control:focus,
 .appointment-form-wrapper .form-select:focus {
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
 }
 
@@ -31330,7 +31325,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .appointment-form-wrapper .file-upload-wrapper:hover {
-    border-color: #4F46E5;
+    border-color: #1A528E;
     background-color: #EEF2FF;
 }
 
@@ -31352,7 +31347,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 /* Buttons */
 .appointment-form-wrapper .btn-primary {
-    background-color: #4F46E5 !important;
+    background-color: #1A528E !important;
     color: #ffffff !important;
     border: none !important;
     padding: 12px 24px !important;
@@ -31374,8 +31369,8 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 
 /* Time Slot Radio Buttons */
 .appointment-form-wrapper .btn-outline-primary {
-    color: #4F46E5 !important;
-    border-color: #4F46E5 !important;
+    color: #1A528E !important;
+    border-color: #1A528E !important;
     background-color: #ffffff !important;
     border-radius: 6px !important;
     padding: 8px 16px !important;
@@ -31386,7 +31381,7 @@ body .media-modal .media-modal-close .media-modal-icon::before {
 }
 
 .appointment-form-wrapper .btn-check:checked+.btn-outline-primary {
-    background-color: #4F46E5 !important;
+    background-color: #1A528E !important;
     color: #ffffff !important;
 }
 
@@ -39610,7 +39605,7 @@ div:where(.swal2-container).swal2-toast-shown .swal2-html-container,
 div:where(.swal2-container).swal2-toast-shown .swal2-timer-progress-bar,
 .swal2-container.swal2-toast-shown .swal2-timer-progress-bar {
     height: 3px !important;
-    background: linear-gradient(90deg, #4F46E5, #10B981) !important;
+    background: linear-gradient(90deg, #1A528E, #10B981) !important;
 }
 
 div:where(.swal2-container),
@@ -47211,7 +47206,6 @@ button.dior-page-btn {
 }
 
 :is(.dior-doctor-wrap, .dior-admin-wrap) #tab-doc-appointments .btn.btn-primary:not(#dior-doc-cal-selected-body *):not(.btn-group *) {
-    width: 100% !important;
     min-height: 42px !important;
     border-radius: 9px !important;
     background: #2D6EB4 !important;
@@ -49140,9 +49134,9 @@ button.dior-page-btn {
 }
 
 .dior-static-pagination .va-page-btn.active {
-    background: #4F46E5 !important;
+    background: #1A528E !important;
     color: #FFFFFF !important;
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
 }
 
 .dior-static-pagination .va-page-btn:disabled {
@@ -49425,7 +49419,7 @@ button.dior-page-btn {
     height: 3px !important;
     margin-top: 8px !important;
     border-radius: 3px !important;
-    background: #4f46e5 !important;
+    background: #1A528E !important;
 }
 
 /* Header search and action controls. */
@@ -49961,7 +49955,7 @@ button.dior-page-btn {
 .va-title-line {
     height: 4px;
     width: 60px;
-    background-color: #4F46E5;
+    background-color: #1A528E;
     border-radius: 4px;
 }
 
@@ -50001,7 +49995,7 @@ button.dior-page-btn {
 
 .va-search-box input:focus {
     outline: none;
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
@@ -50034,7 +50028,7 @@ button.dior-page-btn {
 .va-btn-primary {
     background-color: transparent !important;
     box-shadow: none !important;
-    color: #4F46E5 !important;
+    color: #1A528E !important;
 }
 
 .va-btn-success {
@@ -50195,7 +50189,7 @@ button.dior-page-btn {
     border-radius: 4px;
     border: 1px solid #CBD5E1;
     cursor: pointer;
-    accent-color: #4F46E5;
+    accent-color: #1A528E;
 }
 
 /* Icons */
@@ -50232,7 +50226,7 @@ button.dior-page-btn {
 
 .va-badge-confirmed {
     background-color: transparent;
-    color: #4F46E5;
+    color: #1A528E;
 }
 
 .va-badge-pending {
@@ -50334,7 +50328,7 @@ button.dior-page-btn {
 }
 
 .va-pagination-nav li.active a {
-    background-color: #4F46E5;
+    background-color: #1A528E;
     color: #ffffff;
 }
 
@@ -50362,7 +50356,7 @@ button.dior-page-btn {
 }
 
 .va-form-control:focus {
-    border-color: #4F46E5;
+    border-color: #1A528E;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     outline: none;
 }
@@ -50422,7 +50416,7 @@ select.va-form-control {
 }
 
 .va-search-input:focus {
-    border-color: #4F46E5;
+    border-color: #1A528E;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
@@ -50532,9 +50526,9 @@ select.va-form-control {
 }
 
 .va-page-btn.active {
-    background-color: #4F46E5 !important;
+    background-color: #1A528E !important;
     color: #ffffff !important;
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
 }
 
 .va-page-btn:disabled {
@@ -50548,7 +50542,7 @@ select.va-form-control {
    ============================================ */
 button.va-btn-primary,
 a.va-btn-primary {
-    background-color: #4F46E5;
+    background-color: #1A528E;
     color: #ffffff;
     border: none;
     border-radius: 10px;
@@ -50856,7 +50850,7 @@ a.va-btn-primary:hover {
 .breadcrumb-icon {
     width: 16px !important;
     height: 16px !important;
-    stroke: #4f46e5 !important;
+    stroke: #1A528E !important;
 }
 
 /* 3. Master Table Card (White Container) */
@@ -50897,7 +50891,7 @@ a.va-btn-primary:hover {
     left: 0 !important;
     width: 100% !important;
     height: 2px !important;
-    background-color: #4f46e5 !important;
+    background-color: #1A528E !important;
 }
 
 /* 5. Search Bar */
@@ -50932,7 +50926,7 @@ a.va-btn-primary:hover {
 }
 
 .search-input:focus {
-    border-color: #4f46e5 !important;
+    border-color: #1A528E !important;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
 }
 
@@ -51044,7 +51038,7 @@ a.va-btn-primary:hover {
 
 .cell-icon-text .cell-icon {
     font-size: 16px !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 /* Checkbox */
@@ -51191,12 +51185,12 @@ a.va-btn-primary:hover {
 }
 
 .docs-nav-tabs a:hover {
-    color: #4F46E5;
+    color: #1A528E;
 }
 
 .docs-nav-tabs a.active {
-    color: #4F46E5;
-    border-bottom-color: #4F46E5;
+    color: #1A528E;
+    border-bottom-color: #1A528E;
 }
 
 .docs-nav-tabs a i {
@@ -51244,7 +51238,7 @@ a.va-btn-primary:hover {
 .docs-title-line {
     height: 4px;
     width: 60px;
-    background-color: #4F46E5;
+    background-color: #1A528E;
     border-radius: 4px;
 }
 
@@ -51284,7 +51278,7 @@ a.va-btn-primary:hover {
 
 .docs-search-box input:focus {
     outline: none;
-    border-color: #4F46E5 !important;
+    border-color: #1A528E !important;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
@@ -51436,7 +51430,7 @@ a.va-btn-primary:hover {
     border-radius: 4px;
     border: 1px solid #CBD5E1;
     cursor: pointer;
-    accent-color: #4F46E5;
+    accent-color: #1A528E;
 }
 
 /* Icons */
@@ -52146,7 +52140,7 @@ a.va-btn-primary:hover {
 .edit-patient-wrapper .card-inside-title {
     font-size: 16px;
     font-weight: 600;
-    color: #4F46E5;
+    color: #1A528E;
     margin-bottom: 20px;
     margin-top: 15px;
 }
@@ -52182,7 +52176,7 @@ a.va-btn-primary:hover {
 
 .edit-patient-wrapper .form-control:focus,
 .edit-patient-wrapper .form-select:focus {
-    border-color: #4F46E5;
+    border-color: #1A528E;
     outline: none;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
@@ -52201,8 +52195,8 @@ a.va-btn-primary:hover {
 
 /* Action Buttons */
 .edit-patient-wrapper .btn-primary {
-    background-color: #4F46E5;
-    border-color: #4F46E5;
+    background-color: #1A528E;
+    border-color: #1A528E;
     color: #ffffff;
     font-weight: 600;
     padding: 10px 24px;
@@ -52510,16 +52504,16 @@ a.va-btn-primary:hover {
 }
 
 .notifications-tab-panel .stat-card-indigo .stat-glow {
-    background: #4f46e5 !important;
+    background: #1A528E !important;
 }
 
 .notifications-tab-panel .text-indigo {
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .stat-card-indigo .stat-icon-wrapper {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .badge-indigo {
@@ -52582,7 +52576,7 @@ a.va-btn-primary:hover {
 
 .notifications-tab-panel .segmented-tab.active {
     background: #ffffff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -52597,11 +52591,11 @@ a.va-btn-primary:hover {
 
 .notifications-tab-panel .segmented-tab.active .count-pill {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .btn-primary-gradient {
-    background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+    background: linear-gradient(135deg, #1A528E, #3b82f6) !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 8px !important;
@@ -52799,7 +52793,7 @@ a.va-btn-primary:hover {
 
 .notifications-tab-panel .dismissible-chip {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
     padding: 4px 10px !important;
     border-radius: 20px !important;
     font-weight: 600 !important;
@@ -52836,7 +52830,7 @@ a.va-btn-primary:hover {
     top: 0 !important;
     bottom: 0 !important;
     width: 4px !important;
-    background: #4f46e5 !important;
+    background: #1A528E !important;
 }
 
 .notifications-tab-panel .type-icon-wrapper {
@@ -52853,7 +52847,7 @@ a.va-btn-primary:hover {
 
 .notifications-tab-panel .notification-type-user .type-icon-wrapper {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .notification-type-security .type-icon-wrapper {
@@ -52878,7 +52872,7 @@ a.va-btn-primary:hover {
 
 .notifications-tab-panel .notification-type-update .type-icon-wrapper {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
 }
 
 .notifications-tab-panel .notification-title {
@@ -52903,7 +52897,7 @@ a.va-btn-primary:hover {
 
 .notifications-tab-panel .btn-inline-action {
     background: #e0e7ff !important;
-    color: #4f46e5 !important;
+    color: #1A528E !important;
     border-radius: 6px !important;
     font-weight: 600 !important;
     font-size: 12px !important;
@@ -53000,7 +52994,7 @@ a.va-btn-primary:hover {
 
 #dior-subtab-calendar .dior-bs-cal-table td.dior-bs-cal-cell.dior-bs-cal-selected {
     background-color: #f0f4ff !important;
-    box-shadow: inset 0 0 0 2px #4f46e5 !important;
+    box-shadow: inset 0 0 0 2px #1A528E !important;
 }
 
 #dior-subtab-calendar .dior-bs-cal-day-header {
@@ -53023,7 +53017,7 @@ a.va-btn-primary:hover {
 }
 
 #dior-subtab-calendar .dior-bs-cal-cell.dior-bs-cal-today .dior-bs-cal-day-num {
-    background: #4f46e5 !important;
+    background: #1A528E !important;
     color: #ffffff !important;
     font-weight: 700 !important;
     box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4) !important;
@@ -53952,9 +53946,8 @@ a.va-btn-primary:hover {
 /* 2. Desktop Screens (1400px - 1536px and above: xxl) */
 @media (min-width: 1400px) {
     :is(.dior-patient-portal-wrap, .dior-doctor-wrap, .dior-admin-wrap) .dior-side {
-        width: 260px !important;
-        min-width: 260px !important;
-        max-width: 260px !important;
+        width: 100% !important;
+        max-width: 300px !important;
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;

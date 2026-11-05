@@ -298,7 +298,7 @@ if (!empty($first_appt_uid) && isset($appts_data_map[$first_appt_uid])) {
                 </span>
             </div>
 
-            <div class="row g-3">
+            <div class="row g-3 mx-auto">
                 <div class="col-xl-3 col-md-6">
                     <label class="form-label small text-uppercase text-secondary fw-semibold mb-1" for="edit-appt-date">
                         Appointment Date <span class="text-danger">*</span>
@@ -383,7 +383,7 @@ if (!empty($first_appt_uid) && isset($appts_data_map[$first_appt_uid])) {
                     <label class="form-label small text-uppercase text-secondary fw-semibold mb-1" for="edit-join-url">
                         Telehealth / Video Meeting URL
                     </label>
-                    <div class="input-group">
+                    <div class="input-group gap-2">
                         <input type="url" class="form-control rounded-start-3 py-2" id="edit-join-url" name="join_url" placeholder="https://zoom.us/j/...">
                         <button type="button" class="btn btn-outline-secondary px-3" onclick="diorTestMeetingLink()" title="Open Link">
                             <i class="fas fa-arrow-up-right-from-square"></i>
@@ -398,7 +398,7 @@ if (!empty($first_appt_uid) && isset($appts_data_map[$first_appt_uid])) {
                     </label>
                     <div class="row g-2 align-items-center mb-2">
                         <div class="col-md-4">
-                            <div class="input-group">
+                            <div class="input-group gap-2">
                                 <span class="input-group-text bg-white"><i class="far fa-clock text-primary"></i></span>
                                 <input type="text" class="form-control rounded-end-3 py-2" id="edit-appt-time-input" name="appt_time" placeholder="e.g. 10:00 AM - 11:00 AM" required>
                             </div>

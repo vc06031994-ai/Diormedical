@@ -47,7 +47,7 @@ if (!is_array($all_patients)) {
                 style="display: flex; gap: 8px; list-style: none; padding: 0; margin: 0; align-items: center;">
                 <li><a href="javascript:void(0)"
                         onclick="if(typeof diorDocSwitchTab==='function') diorDocSwitchTab('doc-overview')"><i
-                            class="fas fa-house" style="font-size: 14px; color: #4F46E5;"></i></a></li>
+                            class="fas fa-house" style="font-size: 14px; color: #1A528E;"></i></a></li>
                 <li><span style="color: #94A3B8;">/</span></li>
                 <li><a href="javascript:void(0)"
                         onclick="if(typeof diorDocSwitchTab==='function') diorDocSwitchTab('doc-telemed-video')"

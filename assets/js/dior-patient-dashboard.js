@@ -1063,7 +1063,7 @@ window.diorSwitchApptSubTab = function(targetSubTab) {
             html += '<div class="d-flex flex-wrap align-items-center justify-content-between gap-3">';
             
             html += '<div class="d-flex align-items-center gap-3">';
-            html += '<div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 44px; height: 44px; background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%); font-size: 14px;">';
+            html += '<div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 44px; height: 44px; background: linear-gradient(135deg, #1A528E 0%, #3730a3 100%); font-size: 14px;">';
             html += '<i class="fas ' + (isVideo ? 'fa-video' : 'fa-user-doctor') + '"></i>';
             html += '</div>';
             html += '<div>';
@@ -1147,7 +1147,7 @@ window.diorSwitchApptSubTab = function(targetSubTab) {
             html += '</div>';
 
             html += '<div class="d-flex align-items-center gap-2 mb-2">';
-            html += '<div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 38px; height: 38px; background: #4f46e5; font-size: 13px; flex-shrink: 0;">';
+            html += '<div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 38px; height: 38px; background: #1A528E; font-size: 13px; flex-shrink: 0;">';
             html += '<i class="fas ' + (isVideo ? 'fa-video' : 'fa-user-doctor') + '"></i>';
             html += '</div>';
             html += '<div class="lh-sm overflow-hidden">';

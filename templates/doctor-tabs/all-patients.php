@@ -49,7 +49,7 @@ $status_badges = [
         </div>
         <div>
             <ul class="va-breadcrumb-list">
-                <li><a href="#"><i class="fas fa-house" style="font-size:14px;color:#4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="font-size:14px;color:#1A528E;"></i></a></li>
                 <li><span style="color:#94A3B8;">/</span></li>
                 <li><a href="javascript:void(0)">Patients</a></li>
                 <li><span style="color:#94A3B8;">/</span></li>
@@ -230,7 +230,7 @@ $status_badges = [
                 Cancel
             </button>
             <button id="ap-save-status-btn"
-                style="padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:14px;font-weight:600;cursor:pointer;">
+                style="padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#1A528E,#7c3aed);color:#fff;font-size:14px;font-weight:600;cursor:pointer;">
                 <i class="fas fa-check" style="margin-right:6px;"></i>Save Status
             </button>
         </div>
@@ -395,7 +395,7 @@ $status_badges = [
                 (function (p) {
                     var btn = document.createElement('button');
                     btn.textContent = p;
-                    btn.style.cssText = 'width:32px;height:32px;border-radius:6px;border:1px solid ' + (p === currentPage ? '#4f46e5' : '#e2e8f0') + ';background:' + (p === currentPage ? '#4f46e5' : '#fff') + ';color:' + (p === currentPage ? '#fff' : '#475569') + ';font-size:13px;cursor:pointer;';
+                    btn.style.cssText = 'width:32px;height:32px;border-radius:6px;border:1px solid ' + (p === currentPage ? '#1A528E' : '#e2e8f0') + ';background:' + (p === currentPage ? '#1A528E' : '#fff') + ';color:' + (p === currentPage ? '#fff' : '#475569') + ';font-size:13px;cursor:pointer;';
                     btn.addEventListener('click', function () { renderPage(p); });
                     container.appendChild(btn);
                 })(i);

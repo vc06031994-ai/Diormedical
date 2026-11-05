@@ -126,7 +126,7 @@ if (empty($patients)) {
                                 <td>
                                     <div class="va-user-profile">
                                         <div
-                                            style="width:36px;height:36px;border-radius:50%;background:#E0E7FF;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4F46E5;font-size:14px;flex-shrink:0;">
+                                            style="width:36px;height:36px;border-radius:50%;background:#E0E7FF;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1A528E;font-size:14px;flex-shrink:0;">
                                             <?php echo $init; ?>
                                         </div>
                                         <span class="va-user-name"><?php echo $fname; ?></span>
@@ -170,7 +170,7 @@ if (empty($patients)) {
         style="background:#fff;border-radius:16px;padding:32px;width:560px;max-width:95vw;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
             <h3 id="cn-modal-title" style="margin:0;font-size:18px;font-weight:700;color:#1e293b;">
-                <i class="fas fa-notes-medical" style="color:#4f46e5;margin-right:8px;"></i>New Consultation Note
+                <i class="fas fa-notes-medical" style="color:#1A528E;margin-right:8px;"></i>New Consultation Note
             </h3>
             <button id="cn-modal-close"
                 style="background:none;border:none;font-size:20px;cursor:pointer;color:#94a3b8;">&times;</button>
@@ -227,7 +227,7 @@ if (empty($patients)) {
             <button id="cn-modal-cancel"
                 style="padding:10px 20px;border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc;color:#64748b;font-size:14px;cursor:pointer;">Cancel</button>
             <button id="cn-save-btn"
-                style="padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:14px;font-weight:600;cursor:pointer;">
+                style="padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#1A528E,#7c3aed);color:#fff;font-size:14px;font-weight:600;cursor:pointer;">
                 <i class="fas fa-check" style="margin-right:6px;"></i>Save Note
             </button>
         </div>
@@ -257,7 +257,7 @@ if (empty($patients)) {
         }
 
         function openAddModal() {
-            document.getElementById('cn-modal-title').innerHTML = '<i class="fas fa-notes-medical" style="color:#4f46e5;margin-right:8px;"></i>New Consultation Note';
+            document.getElementById('cn-modal-title').innerHTML = '<i class="fas fa-notes-medical" style="color:#1A528E;margin-right:8px;"></i>New Consultation Note';
             document.getElementById('cn-note-id').value = '';
             document.getElementById('cn-note-uid').value = '';
             document.getElementById('cn-patient-select').value = '';

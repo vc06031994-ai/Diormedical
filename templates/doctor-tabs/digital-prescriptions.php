@@ -40,7 +40,7 @@ foreach ($patients_query as $pq) {
     }
 
     #tab-doc-e-prescriptions .va-btn-primary {
-        background-color: #4F46E5 !important;
+        background-color: #1A528E !important;
         color: #ffffff !important;
         box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
     }
@@ -92,11 +92,11 @@ foreach ($patients_query as $pq) {
 
     #tab-doc-e-prescriptions .va-btn-edit {
         background: rgba(79, 70, 229, 0.1) !important;
-        color: #4F46E5 !important;
+        color: #1A528E !important;
     }
 
     #tab-doc-e-prescriptions .va-btn-edit:hover {
-        background: #4F46E5 !important;
+        background: #1A528E !important;
         color: #ffffff !important;
     }
 
@@ -128,7 +128,7 @@ foreach ($patients_query as $pq) {
         </div>
         <div>
             <ul class="va-breadcrumb-list">
-                <li><a href="#"><i class="fas fa-house" style="color: #4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="color: #1A528E;"></i></a></li>
                 <li><span style="color: #94A3B8;">/</span></li>
                 <li class="active"><span>Digital Prescriptions</span></li>
             </ul>

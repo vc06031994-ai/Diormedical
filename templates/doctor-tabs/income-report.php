@@ -361,7 +361,7 @@
                     speed: 650
                 }
             },
-            colors: ['#4f46e5', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'],
+            colors: ['#1A528E', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'],
             dataLabels: { enabled: false },
             stroke: {
                 curve: 'smooth',

@@ -100,7 +100,7 @@ if (!empty($dp_list)) {
         <div>
             <ul class="va-breadcrumb-list"
                 style="display: flex; gap: 8px; list-style: none; padding: 0; margin: 0; align-items: center;">
-                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #1A528E;"></i></a></li>
                 <li><span style="color: #94A3B8;">/</span></li>
                 <li><a href="javascript:void(0)"
                         style="color: #64748B; text-decoration: none; font-size: 14px;">Documents & Consent</a></li>
@@ -551,7 +551,7 @@ if (!empty($dp_list)) {
         <div>
             <ul class="va-breadcrumb-list"
                 style="display: flex; gap: 8px; list-style: none; padding: 0; margin: 0; align-items: center;">
-                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #1A528E;"></i></a></li>
                 <li><span style="color: #94A3B8;">/</span></li>
                 <li><a href="javascript:void(0)"
                         style="color: #64748B; text-decoration: none; font-size: 14px;">Documents & Consent</a></li>
@@ -777,7 +777,7 @@ if (!empty($dp_list)) {
         <div>
             <ul class="va-breadcrumb-list"
                 style="display: flex; gap: 8px; list-style: none; padding: 0; margin: 0; align-items: center;">
-                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #1A528E;"></i></a></li>
                 <li><span style="color: #94A3B8;">/</span></li>
                 <li><a href="javascript:void(0)"
                         style="color: #64748B; text-decoration: none; font-size: 14px;">Documents & Consent</a></li>

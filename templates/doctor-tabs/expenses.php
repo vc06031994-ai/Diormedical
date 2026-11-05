@@ -180,7 +180,7 @@
                         <td>Credit Card</td>
                         <td>Radiology</td>
                         <td><span class="va-badge va-badge-completed">Approved</span></td>
-                        <td><span class="va-badge" style="background-color:transparent; color:#4F46E5;">Partially
+                        <td><span class="va-badge" style="background-color:transparent; color:#1A528E;">Partially
                                 Paid</span></td>
                         <td>
                             <div class="va-row-actions" style="justify-content: center;">

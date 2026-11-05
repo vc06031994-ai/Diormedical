@@ -7,7 +7,7 @@
         <div>
             <ul class="breadcrumb-list"
                 style="display: flex; list-style: none; padding: 0; margin: 0; gap: 8px; align-items: center;">
-                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #4F46E5;"></i></a></li>
+                <li><a href="#"><i class="fas fa-house" style="font-size: 14px; color: #1A528E;"></i></a></li>
                 <li><span style="color: #94A3B8;">/</span></li>
                 <li><a href="javascript:void(0)"
                         style="font-size: 14px; color: #64748B; text-decoration: none; font-weight: 500;">Patients</a>
@@ -45,7 +45,7 @@
                 <h4 class="va-card-title"><i class="fas fa-clipboard-user text-primary me-2"></i>Patient Records</h4>
                 <!-- Blue Accent Line -->
                 <div
-                    style="position: absolute; bottom: -1px; left: 0; width: 40px; height: 3px; background-color: #4F46E5; border-radius: 3px 3px 0 0;">
+                    style="position: absolute; bottom: -1px; left: 0; width: 40px; height: 3px; background-color: #1A528E; border-radius: 3px 3px 0 0;">
                 </div>
             </div>
 
@@ -172,7 +172,7 @@
 
     .dior-st.col-indigo {
         background-color: #E0E7FF;
-        color: #4F46E5;
+        color: #1A528E;
     }
 
     .dior-st {

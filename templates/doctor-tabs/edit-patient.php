@@ -596,7 +596,7 @@ if (empty($patients)) {
             if (!res.success || !res.data || !res.data.patient) {
                 var msg = (res.data && res.data.message) ? res.data.message : 'Unable to load patient details.';
                 if (typeof Swal !== 'undefined') {
-                    Swal.fire({ icon: 'error', title: 'Error', text: msg, confirmButtonColor: '#4F46E5' });
+                    Swal.fire({ icon: 'error', title: 'Error', text: msg, confirmButtonColor: '#1A528E' });
                 } else {
                     alert(msg);
                 }
@@ -725,7 +725,7 @@ if (empty($patients)) {
                 var pid = dropdown.value;
                 if (!pid) {
                     if (typeof Swal !== 'undefined') {
-                        Swal.fire({ icon: 'info', title: 'Choose Patient', text: 'Please select a patient from the dropdown list.', confirmButtonColor: '#4F46E5' });
+                        Swal.fire({ icon: 'info', title: 'Choose Patient', text: 'Please select a patient from the dropdown list.', confirmButtonColor: '#1A528E' });
                     } else {
                         alert('Please select a patient from the dropdown list.');
                     }
@@ -890,7 +890,7 @@ if (empty($patients)) {
                         var msg = (res.data && res.data.message) ? res.data.message : 'Unable to update patient profile.';
                         showAlert('danger', msg);
                         if (typeof Swal !== 'undefined') {
-                            Swal.fire({ icon: 'error', title: 'Update Failed', text: msg, confirmButtonColor: '#4F46E5' });
+                            Swal.fire({ icon: 'error', title: 'Update Failed', text: msg, confirmButtonColor: '#1A528E' });
                         }
                         return;
                     }
@@ -930,7 +930,7 @@ if (empty($patients)) {
                             icon: 'success',
                             title: 'Profile Updated',
                             text: msg,
-                            confirmButtonColor: '#4F46E5'
+                            confirmButtonColor: '#1A528E'
                         });
                     }
                 })

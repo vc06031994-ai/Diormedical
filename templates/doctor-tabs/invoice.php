@@ -239,7 +239,7 @@
         margin-top: 12px;
         font-size: 20px;
         font-weight: 900;
-        color: #4f46e5;
+        color: #1A528E;
     }
     
     .dior-invoice-actions {

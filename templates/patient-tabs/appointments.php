@@ -131,7 +131,7 @@
                                 </span>
                             </div>
                             <div class="rounded-4 d-flex align-items-center justify-content-center"
-                                style="width: 52px; height: 52px; background: rgba(79, 70, 229, 0.1); color: #4f46e5; font-size: 22px;">
+                                style="width: 52px; height: 52px; background: rgba(79, 70, 229, 0.1); color: #1A528E; font-size: 22px;">
                                 <i class="fas fa-calendar-check"></i>
                             </div>
                         </div>
@@ -342,7 +342,7 @@
                                         style="background: rgba(79, 70, 229, 0.05); border: 1px solid rgba(79, 70, 229, 0.15);">
                                         <div class="d-flex align-items-center gap-2">
                                             <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold"
-                                                style="width: 32px; height: 32px; background: #4f46e5; font-size: 12px;">
+                                                style="width: 32px; height: 32px; background: #1A528E; font-size: 12px;">
                                                 MS
                                             </div>
                                             <div class="lh-sm">
@@ -359,7 +359,7 @@
                                         style="font-size: 11px;">
                                         <div class="d-flex align-items-center gap-1">
                                             <span
-                                                style="width: 8px; height: 8px; border-radius: 50%; background: #4f46e5; display: inline-block;"></span>
+                                                style="width: 8px; height: 8px; border-radius: 50%; background: #1A528E; display: inline-block;"></span>
                                             <span>Video</span>
                                         </div>
                                         <div class="d-flex align-items-center gap-1">

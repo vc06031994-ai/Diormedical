@@ -19,7 +19,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="section-body">
+    <div class="section-body d-flex justify-content-center align-items-start w-100">
         <div class="row">
             <div class="col-12">
                 <div class="card border-0 shadow-none bg-transparent p-0 m-0 w-100">
