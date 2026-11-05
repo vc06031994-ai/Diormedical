@@ -147,6 +147,111 @@ $doctor_calendar_json = wp_json_encode($doctor_calendar_events, JSON_HEX_TAG | J
 #dior-doc-calendar-card .dior-doc-bs-cal-event.phone{background:#0ea5e9;}
 #dior-doc-calendar-card .dior-doc-cal-appointment{border:1px solid #e2e8f0;border-radius:12px;padding:12px;background:#fff;}
 @media(max-width:767px){#dior-doc-calendar-card .card-header{padding:12px!important;}#dior-doc-calendar-card .dior-doc-bs-cal-cell{height:78px;padding:4px 2px;}#dior-doc-calendar-card .dior-doc-bs-cal-event{font-size:9px;padding:2px;}#dior-doc-calendar-card .dior-bs-cal-table th{font-size:10px;padding:7px 1px!important;}#dior-doc-calendar-card .card-body{padding:12px!important;}#dior-doc-cal-stats .card{min-height:112px;}#dior-doc-calendar-card .d-flex.flex-wrap.justify-content-between{align-items:flex-start!important;}}
+
+/* Mobile layout: use the full available dashboard width and prevent calendar content from wrapping vertically. */
+@media (max-width: 767.98px) {
+    #tab-doc-appointments {
+        box-sizing: border-box !important;
+        width: calc(100% + 56px) !important;
+        max-width: none !important;
+        margin: -24px -28px 0 !important;
+        padding: 12px 10px 24px !important;
+        overflow-x: hidden;
+    }
+    #tab-doc-appointments > .mb-4:first-child {
+        margin: 0 0 14px !important;
+        padding: 0 2px;
+        align-items: flex-start !important;
+    }
+    #tab-doc-appointments > .mb-4:first-child h4 { font-size: 18px !important; }
+    #tab-doc-appointments > .mb-4:first-child p { font-size: 12px !important; }
+    #tab-doc-appointments > .mb-4:first-child > button { width: 100%; justify-content: center; }
+    #tab-doc-appointments .dior-subtab-nav-bar {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 6px;
+        margin: 0 -10px 14px !important;
+        padding: 0 10px 6px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    #tab-doc-appointments .dior-subtab-pill {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+    #dior-doc-cal-stats {
+        margin: 0 0 12px !important;
+        --bs-gutter-x: 8px;
+        --bs-gutter-y: 8px;
+    }
+    #dior-doc-cal-stats > div { width: 50%; }
+    #dior-doc-cal-stats .card { min-height: 100px !important; padding: 12px !important; }
+    #dior-doc-cal-stats .card span { font-size: 9px !important; }
+    #dior-doc-cal-stats .card h3 { font-size: 22px !important; }
+    #dior-doc-cal-stats .card > .d-flex > div:last-child { width: 38px !important; height: 38px !important; font-size: 16px !important; }
+    #dior-doc-calendar-card { margin-bottom: 12px !important; border-radius: 12px !important; }
+    #dior-doc-calendar-card > .card-header { padding: 12px 10px !important; }
+    #dior-doc-calendar-card > .card-header > .d-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+    #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:first-child {
+        justify-content: space-between;
+        width: 100%;
+        gap: 5px !important;
+    }
+    #dior-doc-bs-cal-title { min-width: 0 !important; flex: 1; font-size: 17px !important; }
+    #dior-doc-bs-cal-today { margin-left: 0 !important; padding-left: 10px !important; padding-right: 10px !important; }
+    #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:last-child {
+        display: grid !important;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+        gap: 8px !important;
+        width: 100%;
+    }
+    #dior-doc-calendar-card .input-group { width: 100% !important; min-width: 0; }
+    #dior-doc-calendar-card .input-group .form-select { min-width: 0 !important; width: 1% !important; }
+    #dior-doc-calendar-card .btn-group { width: 100%; }
+    #dior-doc-calendar-card .btn-group .btn { flex: 1 1 50%; padding: 8px 5px; }
+    #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:last-child > button { grid-column: 1 / -1; width: 100%; justify-content: center; }
+    #dior-doc-calendar-card > .card-body { padding: 10px !important; }
+    #dior-doc-calendar-card > .card-body > .row { --bs-gutter-x: 0; --bs-gutter-y: 14px; }
+    #dior-doc-calendar-card .col-lg-8,
+    #dior-doc-calendar-card .col-lg-4 { padding-left: 0; padding-right: 0; }
+    #dior-doc-calendar-card .table-responsive { width: 100%; overflow: hidden; border-radius: 8px !important; }
+    #dior-doc-calendar-card .dior-bs-cal-table { width: 100% !important; min-width: 0 !important; table-layout: fixed; }
+    #dior-doc-calendar-card .dior-bs-cal-table th { width: 14.285% !important; padding: 9px 0 !important; font-size: 9px !important; letter-spacing: 0 !important; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-cell { height: 68px !important; padding: 4px 2px !important; overflow: hidden; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-day-head { justify-content: center; margin-bottom: 3px; font-size: 10px; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-day-num { width: 21px; height: 21px; font-size: 10px; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-day-head .badge { font-size: 8px; padding: 2px 4px; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-event {
+        display: block;
+        max-width: 100%;
+        margin: 2px 0;
+        padding: 2px 1px;
+        border-radius: 3px;
+        font-size: 8px !important;
+        line-height: 1.2;
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+    #dior-doc-calendar-card .dior-doc-bs-cal-cell > .small { font-size: 8px !important; line-height: 1.2; white-space: nowrap; }
+    #dior-doc-calendar-card #dior-doc-bs-cal-selected-body { max-height: 360px !important; }
+    #dior-doc-calendar-card .card-footer > .d-flex { justify-content: flex-start !important; gap: 10px 14px !important; }
+}
+@media (max-width: 380px) {
+    #tab-doc-appointments { width: calc(100% + 48px) !important; margin-left: -24px !important; margin-right: -24px !important; padding-left: 8px !important; padding-right: 8px !important; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-cell { height: 62px !important; }
+    #dior-doc-calendar-card .dior-doc-bs-cal-event { font-size: 7px !important; }
+}
+
 </style>
 
 <script>
