@@ -55230,3 +55230,173 @@ a.va-btn-primary:hover {
         margin-top: 0 !important;
     }
 }
+
+/* ==========================================================================
+   DOCTOR DASHBOARD — APPOINTMENT SCREENS (Calendar / View / Book / Edit)
+   Mobile + tablet responsive layer.
+
+   Root causes this block fixes:
+   1. Section 12 forces `padding: 24px 28px !important` on every sub-page panel
+      and it sits AFTER the `@media (max-width: 991.98px) { padding: 0 }` rule,
+      so the 28px side padding was never removed on phones (28px + the 10px
+      #dior-doc-content gutter = 38px lost on each side).
+   2. Breadcrumbs + a literal "\n\n" string were printed by the templates.
+   3. Fixed-width children (calendar table, HIPAAtizer form, selects) were
+      wider than the narrow content box and got clipped.
+
+   All rules are scoped to `.dior-appt-screen` (class added to the four
+   appointment <section> panels). Selector = 2 IDs + 3 classes so it wins over
+   the section-12 `:not(#id):not(#id)` rule without touching other pages.
+   ========================================================================== */
+
+/* Breadcrumbs are not used on the appointment screens. Delete this rule to bring them back. */
+#dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen nav[aria-label="breadcrumb"] {
+    display: none !important;
+}
+
+@media (max-width: 991.98px) {
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 14px 0 24px !important;
+        overflow-x: clip;
+    }
+
+    /* Page header: remove the 4px inset so title, cards and buttons share one left edge. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .mb-4:first-child,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .row:first-child,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .d-flex:first-child {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Bootstrap .row inside these panels must not poke out of the content box. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .row {
+        margin-left: calc(var(--bs-gutter-x, 1.5rem) * -.5);
+        margin-right: calc(var(--bs-gutter-x, 1.5rem) * -.5);
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .row:first-child {
+        --bs-gutter-x: 0;
+    }
+
+    /* Cards, forms and embedded content can never exceed the screen. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .card,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .form-control,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .form-select,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .input-group {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Sub-tab pills: tidy 2x2 grid instead of an overflowing row. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .dior-subtab-nav-bar {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .dior-subtab-pill {
+        width: 100%;
+        justify-content: center;
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 9px 6px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Header action buttons: full width, stacked. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .mb-4:first-child,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .d-flex:first-child {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        margin-bottom: 14px !important;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .mb-4:first-child > .d-flex:last-child,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .d-flex:first-child > .d-flex:last-child {
+        flex-direction: column;
+        align-items: stretch !important;
+        width: 100%;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .mb-4:first-child .btn,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen > .d-flex:first-child .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* KPI / stat cards (View Appointments): label, number and icon never collide. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card {
+        padding: 12px !important;
+        min-height: 0 !important;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card > .d-flex {
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card > .d-flex > div:first-child {
+        min-width: 0;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card .text-uppercase {
+        display: block;
+        font-size: 10px !important;
+        letter-spacing: 0 !important;
+        line-height: 1.25;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card .stat-num {
+        font-size: 26px !important;
+        line-height: 1.1;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card > .d-flex > .badge {
+        flex: 0 0 auto;
+        width: auto !important;
+        padding: 8px !important;
+        margin: 0 !important;
+        position: static !important;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card > .d-flex > .badge i {
+        font-size: 15px !important;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .stat-card .badge {
+        white-space: normal;
+        text-align: left;
+    }
+
+    /* Card paddings inside the screens. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .card.p-md-4,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .card-body {
+        padding: 14px !important;
+    }
+
+    /* Book Appointment (HIPAAtizer embed): fluid, no sideways scroll. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .dior-hipaatizer-booking-wrapper {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .dior-hipaatizer-booking-wrapper * {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Edit Appointment: single column forms, readable select width. */
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen [class*="col-md-"],
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen [class*="col-lg-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .form-select,
+    #dior-doctor-app #dior-doc-content .dior-tab-panel.dior-appt-screen .form-control {
+        font-size: 14px;
+        text-overflow: ellipsis;
+    }
+}
