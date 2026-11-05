@@ -154,45 +154,45 @@ $doctor_calendar_json = wp_json_encode($doctor_calendar_events, JSON_HEX_TAG | J
    deals with the calendar's own components.
    ========================================================================== */
 @media (max-width: 767.98px) {
-    #tab-doc-appointments #dior-doc-cal-stats { --bs-gutter-x: 10px; --bs-gutter-y: 10px; margin-bottom: 12px !important; }
-    #tab-doc-appointments #dior-doc-cal-stats > [class*="col-"] { flex: 0 0 50%; width: 50%; max-width: 50%; }
-    #tab-doc-appointments #dior-doc-cal-stats .card { padding: 12px !important; }
-    #tab-doc-appointments #dior-doc-cal-stats .card .d-flex { gap: 8px; }
-    #tab-doc-appointments #dior-doc-cal-stats .card .d-flex > div:first-child { min-width: 0; }
-    #tab-doc-appointments #dior-doc-cal-stats .card span.text-uppercase { font-size: 10px !important; letter-spacing: 0 !important; line-height: 1.25; display: block; }
-    #tab-doc-appointments #dior-doc-cal-stats .card h3 { font-size: 24px !important; }
-    #tab-doc-appointments #dior-doc-cal-stats .card .badge { font-size: 10px !important; white-space: normal; text-align: left; }
-    #tab-doc-appointments #dior-doc-cal-stats .card .d-flex > div:last-child { width: 38px !important; height: 38px !important; font-size: 16px !important; flex: 0 0 38px; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats { --bs-gutter-x: 10px; --bs-gutter-y: 10px; margin-bottom: 12px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats > [class*="col-"] { flex: 0 0 50%; width: 50%; max-width: 50%; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card { padding: 12px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card .d-flex { gap: 8px; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card .d-flex > div:first-child { min-width: 0; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card span.text-uppercase { font-size: 10px !important; letter-spacing: 0 !important; line-height: 1.25; display: block; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card h3 { font-size: 24px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card .badge { font-size: 10px !important; white-space: normal; text-align: left; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-cal-stats .card .d-flex > div:last-child { width: 38px !important; height: 38px !important; font-size: 16px !important; flex: 0 0 38px; }
 
-    #tab-doc-appointments #dior-doc-calendar-card { border-radius: 14px !important; margin-bottom: 12px !important; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-header { padding: 12px !important; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-header > .d-flex { flex-direction: column; align-items: stretch !important; gap: 10px !important; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:first-child { justify-content: space-between; gap: 6px !important; width: 100%; }
-    #tab-doc-appointments #dior-doc-bs-cal-title { flex: 1 1 auto; min-width: 0 !important; padding: 0 !important; font-size: 16px !important; }
-    #tab-doc-appointments #dior-doc-bs-cal-today { margin: 0 !important; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:last-child { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px !important; width: 100%; }
-    #tab-doc-appointments #dior-doc-calendar-card .input-group { width: 100% !important; min-width: 0; flex-wrap: nowrap; }
-    #tab-doc-appointments #dior-doc-calendar-card .input-group .form-select { min-width: 0 !important; width: 1% !important; }
-    #tab-doc-appointments #dior-doc-calendar-card .btn-group { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px !important; width: 100%; }
-    #tab-doc-appointments #dior-doc-calendar-card .btn-group .btn { width: 100%; white-space: nowrap; border-radius: 8px !important; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:last-child > button { grid-column: 1 / -1; width: 100%; justify-content: center; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card { border-radius: 14px !important; margin-bottom: 12px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-header { padding: 12px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-header > .d-flex { flex-direction: column; align-items: stretch !important; gap: 10px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:first-child { justify-content: space-between; gap: 6px !important; width: 100%; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-bs-cal-title { flex: 1 1 auto; min-width: 0 !important; padding: 0 !important; font-size: 16px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-bs-cal-today { margin: 0 !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:last-child { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px !important; width: 100%; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .input-group { width: 100% !important; min-width: 0; flex-wrap: nowrap; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .input-group .form-select { min-width: 0 !important; width: 1% !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .btn-group { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px !important; width: 100%; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .btn-group .btn { width: 100%; white-space: nowrap; border-radius: 8px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-header > .d-flex > .d-flex:last-child > button { grid-column: 1 / -1; width: 100%; justify-content: center; }
 
-    #tab-doc-appointments #dior-doc-calendar-card > .card-body { padding: 10px !important; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-body > .row { --bs-gutter-x: 0; --bs-gutter-y: 12px; margin-left: 0; margin-right: 0; }
-    #tab-doc-appointments #dior-doc-calendar-card > .card-body > .row > [class*="col-"] { padding-left: 0; padding-right: 0; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-body { padding: 10px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-body > .row { --bs-gutter-x: 0; --bs-gutter-y: 12px; margin-left: 0; margin-right: 0; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card > .card-body > .row > [class*="col-"] { padding-left: 0; padding-right: 0; }
 
     /* 7 equal columns that can never be wider than the card. */
-    #tab-doc-appointments #dior-doc-calendar-card .table-responsive { overflow: hidden; border-radius: 10px !important; }
-    #tab-doc-appointments #dior-doc-calendar-card .dior-bs-cal-table { width: 100% !important; min-width: 0 !important; table-layout: fixed; }
-    #tab-doc-appointments #dior-doc-calendar-card .dior-bs-cal-table th { width: 14.285% !important; padding: 8px 0 !important; font-size: 10px !important; letter-spacing: 0 !important; }
-    #tab-doc-appointments #dior-doc-calendar-card .dior-doc-bs-cal-cell { height: 54px !important; padding: 4px 0 !important; text-align: center; overflow: hidden; }
-    #tab-doc-appointments #dior-doc-calendar-card .dior-doc-bs-cal-day-head { flex-direction: column; justify-content: center; gap: 3px; margin: 0; }
-    #tab-doc-appointments #dior-doc-calendar-card .dior-doc-bs-cal-day-num { width: 24px; height: 24px; font-size: 12px; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .table-responsive { overflow: hidden; border-radius: 10px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-bs-cal-table { width: 100% !important; min-width: 0 !important; table-layout: fixed; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-bs-cal-table th { width: 14.285% !important; padding: 8px 0 !important; font-size: 10px !important; letter-spacing: 0 !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-doc-bs-cal-cell { height: 54px !important; padding: 4px 0 !important; text-align: center; overflow: hidden; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-doc-bs-cal-day-head { flex-direction: column; justify-content: center; gap: 3px; margin: 0; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-doc-bs-cal-day-num { width: 24px; height: 24px; font-size: 12px; }
     /* Visit count badge becomes a dot; the patient list for the selected day is shown below the grid. */
-    #tab-doc-appointments #dior-doc-calendar-card .dior-doc-bs-cal-day-head .badge { display: block; width: 6px; height: 6px; padding: 0 !important; font-size: 0 !important; border-radius: 50% !important; }
-    #tab-doc-appointments #dior-doc-calendar-card .dior-doc-bs-cal-event { display: none !important; }
-    #tab-doc-appointments #dior-doc-calendar-card #dior-doc-bs-cal-selected-body { max-height: none !important; }
-    #tab-doc-appointments #dior-doc-calendar-card .card-footer > .d-flex { justify-content: flex-start !important; gap: 8px 14px !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-doc-bs-cal-day-head .badge { display: block; width: 6px; height: 6px; padding: 0 !important; font-size: 0 !important; border-radius: 50% !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .dior-doc-bs-cal-event { display: none !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card #dior-doc-bs-cal-selected-body { max-height: none !important; }
+    #dior-doc-content #tab-doc-appointments.dior-tab-panel.dior-appt-screen #dior-doc-calendar-card .card-footer > .d-flex { justify-content: flex-start !important; gap: 8px 14px !important; }
 }
 </style>
 
