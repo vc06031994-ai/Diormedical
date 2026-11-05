@@ -1,4 +1,4 @@
-<section class="dior-tab-panel appointment-form-wrapper" id="tab-doc-appointments-book" style="display: none;">
+<section class="dior-tab-panel dior-appt-screen appointment-form-wrapper" id="tab-doc-appointments-book" style="display: none;">
     <!-- Breadcrumb & Header (100% Native Bootstrap 5) -->
     <div class="row g-3 align-items-center justify-content-between mb-4">
         <div class="col-12 col-lg-auto">
@@ -16,7 +16,9 @@
                 </ol>
             </nav>
         </div>
-    </div>\n\n<!-- Main Content -->
+    </div>
+
+    <!-- Main Content -->
     <div class="section-body">
         <div class="row">
             <div class="col-12">

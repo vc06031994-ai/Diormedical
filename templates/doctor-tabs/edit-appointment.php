@@ -205,7 +205,7 @@ if (!empty($first_appt_uid) && isset($appts_data_map[$first_appt_uid])) {
     $initial_patient_id = (int)$appts_data_map[$first_appt_uid]['patient_id'];
 }
 ?>
-<section class="dior-tab-panel appointment-form-wrapper" id="tab-doc-appointments-edit" style="display: none;">
+<section class="dior-tab-panel dior-appt-screen appointment-form-wrapper" id="tab-doc-appointments-edit" style="display: none;">
     <!-- Breadcrumb & Header (100% Native Bootstrap 5) -->
     <div class="row g-3 align-items-center justify-content-between mb-4">
         <div class="col-12 col-lg-auto">
@@ -223,7 +223,9 @@ if (!empty($first_appt_uid) && isset($appts_data_map[$first_appt_uid])) {
                 </ol>
             </nav>
         </div>
-    </div>\n\n<!-- 1. Patient & Appointment Selector Header Card -->
+    </div>
+
+    <!-- 1. Patient & Appointment Selector Header Card -->
     <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 mb-4 bg-light">
         <div class="row g-3 align-items-center">
             <div class="col-lg-5 col-md-6 col-12">

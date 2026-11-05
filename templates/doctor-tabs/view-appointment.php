@@ -154,7 +154,7 @@ $status_badges = [
 ];
 ?>
 
-<section class="dior-tab-panel" id="tab-doc-appointments-view" style="display: none;">
+<section class="dior-tab-panel dior-appt-screen" id="tab-doc-appointments-view" style="display: none;">
 
     <!-- Hero Header (100% Native Bootstrap 5) -->
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
@@ -188,7 +188,9 @@ $status_badges = [
                 <i class="fas fa-plus"></i> Book Appointment
             </button>
         </div>
-    </div>\n\n<!-- Quick Stat KPI Bar (100% Bootstrap 5 Cards) -->
+    </div>
+
+    <!-- Quick Stat KPI Bar (100% Bootstrap 5 Cards) -->
     <div class="row g-3 mb-4">
         <div class="col-xl-3 col-sm-6 col-12">
             <div
