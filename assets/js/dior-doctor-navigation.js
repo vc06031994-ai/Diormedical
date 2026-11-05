@@ -67,27 +67,94 @@
         }
     };
 
-    // Mobile drawer close helper
-    window.diorDocCloseMobile = function () {
-        var sidebar = document.getElementById('dior-doc-sidebar');
-        var backdrop = document.getElementById('dior-doc-backdrop');
-        if (sidebar) sidebar.classList.remove('mobile-open');
-        if (backdrop) backdrop.classList.remove('active');
+    /* ------------------------------------------------------------------
+       Mobile offcanvas drawer
+       Single source of truth for the drawer state. Every entry point
+       (hamburger, X button, backdrop tap, outside tap, Esc, tab change)
+       funnels through diorDocSetDrawer() so the sidebar, the backdrop and
+       the body scroll lock can never drift out of sync.
+       ------------------------------------------------------------------ */
+    var DOC_DRAWER_MQ = '(max-width: 1024.98px)';
+
+    function diorDocDrawerIsMobile() {
+        if (window.matchMedia) {
+            return window.matchMedia(DOC_DRAWER_MQ).matches;
+        }
+        return window.innerWidth <= 1024;
+    }
+
+    function diorDocDrawerEls() {
+        return {
+            sidebar: document.getElementById('dior-doc-sidebar'),
+            backdrop: document.getElementById('dior-doc-backdrop'),
+            toggle: document.getElementById('dior-doc-menu-toggle')
+        };
+    }
+
+    function diorDocSyncDrawerUi(isOpen) {
+        var els = diorDocDrawerEls();
+        var isMobile = diorDocDrawerIsMobile();
+        if (els.sidebar) {
+            els.sidebar.classList.toggle('mobile-open', isOpen);
+            // Never hide the permanent desktop rail from assistive tech.
+            if (isMobile) {
+                els.sidebar.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            } else {
+                els.sidebar.removeAttribute('aria-hidden');
+            }
+        }
+        if (els.backdrop) {
+            // Both hooks are used across the stylesheets (`.active` in the
+            // drawer CSS, `.open` in the legacy rules) — keep them together.
+            els.backdrop.classList.toggle('active', isOpen);
+            els.backdrop.classList.toggle('open', isOpen);
+            els.backdrop.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        }
+        if (els.toggle) {
+            els.toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+        document.body.classList.toggle('dior-drawer-locked', !!isOpen && diorDocDrawerIsMobile());
+    }
+
+    window.diorDocSetDrawer = function (open) {
+        var els = diorDocDrawerEls();
+        if (!els.sidebar) return;
+        var isOpen = !!open;
+        if (isOpen && !diorDocDrawerIsMobile()) {
+            // Desktop keeps the permanent rail: no drawer, no backdrop.
+            isOpen = false;
+        }
+        diorDocSyncDrawerUi(isOpen);
     };
 
-    // Mobile drawer open helper
-    window.diorDocOpenMobile = function () {
-        var sidebar = document.getElementById('dior-doc-sidebar');
-        var backdrop = document.getElementById('dior-doc-backdrop');
-        if (!sidebar) return;
-        var isOpen = sidebar.classList.contains('mobile-open');
-        if (isOpen) {
-            sidebar.classList.remove('mobile-open');
-            if (backdrop) backdrop.classList.remove('active');
-        } else {
-            sidebar.classList.add('mobile-open');
-            if (backdrop) backdrop.classList.add('active');
+    window.diorDocIsDrawerOpen = function () {
+        var els = diorDocDrawerEls();
+        return !!(els.sidebar && els.sidebar.classList.contains('mobile-open'));
+    };
+
+    // Mobile drawer close helper
+    window.diorDocCloseMobile = function () {
+        window.diorDocSetDrawer(false);
+    };
+
+    // Mobile drawer open helper (toggles when called from the hamburger)
+    window.diorDocOpenMobile = function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        if (window.innerWidth > 1024) {
+            // Desktop: the sidebar is always visible, so use the toggle as a
+            // collapse/expand control instead of opening an offcanvas drawer.
+            var wrap = document.querySelector('.dior-doctor-wrap .dior-app') ||
+                document.querySelector('.dior-doctor-wrap') ||
+                document.querySelector('.dior-app');
+            if (wrap) {
+                wrap.classList.toggle('dior-sidebar-collapsed');
+            } else {
+                var sb = diorDocDrawerEls().sidebar;
+                if (sb) sb.classList.toggle('collapsed');
+            }
+            return;
         }
+        window.diorDocSetDrawer(!window.diorDocIsDrawerOpen());
     };
 
     // Main tab switcher
@@ -250,4 +317,48 @@
     } else {
         boot();
     }
+
+    /* ------------------------------------------------------------------
+       Drawer dismissal: outside tap, backdrop tap, Esc and resize.
+       Registered in the capture-free bubbling phase so nav buttons keep
+       working; listeners are delegated so they survive re-renders.
+       ------------------------------------------------------------------ */
+    function installDrawerDismissHandlers() {
+        if (window.__diorDocDrawerDismissReady) return;
+        window.__diorDocDrawerDismissReady = true;
+
+        function isDrawerOpen() {
+            var sidebar = document.getElementById('dior-doc-sidebar');
+            return !!(sidebar && sidebar.classList.contains('mobile-open'));
+        }
+
+        document.addEventListener('click', function (event) {
+            if (!isDrawerOpen()) return;
+            var sidebar = document.getElementById('dior-doc-sidebar');
+            var target = event.target;
+
+            // Clicks inside the drawer (or its children) stay untouched.
+            if (sidebar && target && target.closest && sidebar.contains(target)) return;
+            // Do not instantly re-close when the hamburger itself opened it.
+            if (target && target.closest && target.closest('.dior-mobile-menu-toggle, #dior-doc-menu-toggle')) return;
+
+            window.diorDocCloseMobile();
+        }, false);
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key !== 'Escape' && event.key !== 'Esc') return;
+            if (!isDrawerOpen()) return;
+            window.diorDocCloseMobile();
+            var toggle = document.getElementById('dior-doc-menu-toggle');
+            if (toggle && toggle.focus) toggle.focus();
+        }, false);
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 1024 && isDrawerOpen()) {
+                window.diorDocCloseMobile();
+            }
+        });
+    }
+
+    installDrawerDismissHandlers();
 })();

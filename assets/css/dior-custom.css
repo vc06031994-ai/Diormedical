@@ -55393,3 +55393,110 @@ a.va-btn-primary:hover {
         text-overflow: ellipsis;
     }
 }
+
+/* ==========================================================================
+   MOBILE OFFCANVAS DRAWER — CLOSE AFFORDANCES  (doctor + patient portals)
+   --------------------------------------------------------------------------
+   Fixes two defects on the offcanvas sidebar:
+     1. There was no close (X) button inside the drawer.
+     2. The backdrop stayed at `opacity: 0` / `pointer-events: none` because
+        the JS toggles `.active` while the doctor rules only activated on
+        `.open`, so tapping outside the drawer never closed it.
+
+   Appended last on purpose: the file contains several earlier, duplicated
+   drawer rules, and these must win the cascade on equal specificity.
+   ========================================================================== */
+
+/* The close control is only meaningful for the slide-in drawer. */
+.dior-side-close {
+    display: none !important;
+}
+
+@media (max-width: 1024.98px) {
+
+    /* 1. Close (X) button inside the drawer header ------------------------ */
+    :is(.dior-doctor-wrap, .dior-patient-portal-wrap, .dior-admin-wrap) .dior-side .dior-side-close,
+    :is(.dior-doctor-wrap, .dior-patient-portal-wrap, .dior-admin-wrap) .dior-side .dior-side-close.btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 1px solid rgba(255, 255, 255, 0.32) !important;
+        border-radius: 50% !important;
+        background: rgba(255, 255, 255, 0.14) !important;
+        color: #ffffff !important;
+        font-size: 17px !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
+        z-index: 30 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        /* Soft dark halo keeps the X legible even over the gold logo mark. */
+        box-shadow: 0 0 0 3px rgba(6, 20, 45, 0.55) !important;
+        transition: background 0.18s ease, transform 0.18s ease !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    :is(.dior-doctor-wrap, .dior-patient-portal-wrap, .dior-admin-wrap) .dior-side .dior-side-close:hover,
+    :is(.dior-doctor-wrap, .dior-patient-portal-wrap, .dior-admin-wrap) .dior-side .dior-side-close:focus-visible {
+        background: rgba(255, 255, 255, 0.28) !important;
+        color: #ffffff !important;
+        transform: scale(1.05) !important;
+        outline: 2px solid rgba(255, 255, 255, 0.75) !important;
+        outline-offset: 2px !important;
+    }
+
+    :is(.dior-doctor-wrap, .dior-patient-portal-wrap, .dior-admin-wrap) .dior-side .dior-side-close:active {
+        transform: scale(0.96) !important;
+    }
+
+    /* Header must be a positioning context for the floating X. */
+    :is(.dior-doctor-wrap, .dior-patient-portal-wrap, .dior-admin-wrap) .dior-side .dior-side-header {
+        position: relative !important;
+    }
+
+    /* 2. Backdrop: visible, dimmed and clickable while the drawer is open  */
+    .dior-doctor-wrap .dior-drawer-backdrop,
+    .dior-patient-portal-wrap .dior-drawer-backdrop {
+        display: block !important;
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 99998 !important;
+        background: rgba(6, 20, 45, 0.55) !important;
+        -webkit-backdrop-filter: blur(2px) !important;
+        backdrop-filter: blur(2px) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: opacity 0.25s ease, visibility 0.25s ease !important;
+    }
+
+    .dior-doctor-wrap .dior-drawer-backdrop.active,
+    .dior-doctor-wrap .dior-drawer-backdrop.open,
+    .dior-patient-portal-wrap .dior-drawer-backdrop.active,
+    .dior-patient-portal-wrap .dior-drawer-backdrop.open {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+
+    /* Drawer must always paint above its backdrop. */
+    .dior-doctor-wrap .dior-side,
+    .dior-patient-portal-wrap .dior-side {
+        z-index: 99999 !important;
+    }
+
+    /* 3. Body scroll lock while the drawer is open. */
+    body.dior-drawer-locked {
+        overflow: hidden !important;
+    }
+}

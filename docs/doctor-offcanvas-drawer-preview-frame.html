@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Doctor Dashboard — mobile offcanvas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/dior-custom.css">
+    <style>
+        /* Preview-only helpers: mirror the WP wrapper the dashboard is rendered in. */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f7fb;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        .dior-preview-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 1.2;
+            text-align: center;
+            padding: 28px 12px 22px;
+        }
+
+        .dior-preview-logo span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: .34em;
+            font-weight: 500;
+            opacity: .75;
+        }
+
+        .dior-preview-body {
+            padding: 14px;
+        }
+
+        .dior-preview-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, .07);
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+
+        .dior-preview-card h2 {
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: #0b1030;
+        }
+
+        .dior-preview-card p {
+            font-size: 13px;
+            color: #5a6473;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .dior-preview-pill {
+            display: inline-block;
+            background: #e6f7ee;
+            color: #157347;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dior-wrap dior-doctor-wrap" id="dior-doctor-app">
+
+        <div class="dior-drawer-backdrop" id="dior-doc-backdrop" onclick="diorDocCloseMobile()"></div>
+
+        <div class="dior-app">
+
+            <aside class="dior-side" id="dior-doc-sidebar" aria-label="Provider menu">
+                <div class="dior-side-header">
+                    <div class="brand">
+                        <a href="#" class="brand-link" onclick="return false;">
+                            <div class="dior-preview-logo">Dior Medical<span>Telehealth</span></div>
+                        </a>
+                    </div>
+                    <!-- Mobile drawer close (X) — hidden on desktop via CSS -->
+                    <button type="button" class="dior-side-close btn" id="dior-doc-side-close"
+                        onclick="diorDocCloseMobile()" aria-label="Close menu" title="Close menu">
+                        <i class="fas fa-xmark" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <nav class="dior-side-nav">
+                    <div class="grp">
+                        <span class="grp-title">PROVIDER MENU</span>
+
+                        <button type="button" class="dior-nav-btn active btn" data-tab="doc-overview">
+                            <i class="fas fa-gauge-high"></i><span class="nav-label">Dashboard</span>
+                        </button>
+
+                        <div class="dior-nav-item has-submenu" id="appointments-menu-item">
+                            <button type="button" class="dior-nav-btn btn"
+                                onclick="diorToggleSubmenu(event, 'appointments-menu-item')">
+                                <i class="far fa-calendar"></i><span class="nav-label">Appointments</span>
+                                <i class="fas fa-plus submenu-icon"></i>
+                            </button>
+                            <div class="dior-submenu">
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-appointments">
+                                    <i class="fas fa-calendar-days"></i><span class="nav-label">Appointment Calendar</span>
+                                </button>
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-appointments-book">
+                                    <i class="fas fa-calendar-plus"></i><span class="nav-label">Book Appointment</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="dior-nav-item has-submenu active open" id="patients-menu-item">
+                            <button type="button" class="dior-nav-btn btn"
+                                onclick="diorToggleSubmenu(event, 'patients-menu-item')">
+                                <i class="fas fa-users"></i><span class="nav-label">Patients</span>
+                                <i class="fas fa-minus submenu-icon"></i>
+                            </button>
+                            <div class="dior-submenu">
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-patients-all">
+                                    <i class="fas fa-users"></i><span class="nav-label">All Patients</span>
+                                </button>
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-patients-add">
+                                    <i class="fas fa-user-plus"></i><span class="nav-label">Add Patient</span>
+                                </button>
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-patients-edit">
+                                    <i class="fas fa-user-pen"></i><span class="nav-label">Edit Patient</span>
+                                </button>
+                                <button type="button" class="dior-nav-btn submenu-btn btn active" data-tab="doc-patients-records">
+                                    <i class="fas fa-clipboard-user"></i><span class="nav-label">Patient Records</span>
+                                </button>
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-patients-profile">
+                                    <i class="fas fa-id-card"></i><span class="nav-label">Patient Profile</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-analytics">
+                            <i class="fas fa-chart-line"></i><span class="nav-label">Analytics</span>
+                        </button>
+
+                        <div class="dior-nav-item has-submenu" id="accounts-menu-item">
+                            <button type="button" class="dior-nav-btn btn"
+                                onclick="diorToggleSubmenu(event, 'accounts-menu-item')">
+                                <i class="fas fa-wallet"></i><span class="nav-label">Accounts</span>
+                                <i class="fas fa-plus submenu-icon"></i>
+                            </button>
+                            <div class="dior-submenu">
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-accounts-bill-list">
+                                    <i class="fas fa-receipt"></i><span class="nav-label">Bill List</span>
+                                </button>
+                                <button type="button" class="dior-nav-btn submenu-btn btn" data-tab="doc-accounts-income">
+                                    <i class="fas fa-arrow-trend-up"></i><span class="nav-label">Income</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-consultation-notes">
+                            <i class="fas fa-notes-medical"></i><span class="nav-label">Consultations Notes</span>
+                        </button>
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-e-prescriptions">
+                            <i class="fas fa-prescription-bottle-medical"></i><span class="nav-label">E - Prescriptions</span>
+                        </button>
+
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-pharmacy-list">
+                            <i class="fas fa-pills"></i><span class="nav-label">Pharmacy</span>
+                        </button>
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-documents-upload">
+                            <i class="fas fa-file-medical"></i><span class="nav-label">Documents &amp; Report</span>
+                        </button>
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-telemed-video">
+                            <i class="fas fa-video"></i><span class="nav-label">Telemedicine</span>
+                        </button>
+                        <button type="button" class="dior-nav-btn btn" data-tab="doc-patient-review">
+                            <i class="fas fa-star"></i><span class="nav-label">Feedback &amp; Reviews</span>
+                        </button>
+                    </div>
+                </nav>
+            </aside>
+
+            <main class="dior-main-content">
+                <header class="dior-topbar">
+                    <div class="dior-topbar-left">
+                        <button type="button" class="dior-mobile-menu-toggle btn" id="dior-doc-menu-toggle"
+                            aria-controls="dior-doc-sidebar" aria-expanded="false" aria-label="Open menu"
+                            onclick="diorDocOpenMobile(event)">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="dior-top-search">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <input type="text" id="dior-doc-search" placeholder="Search patients...">
+                        </div>
+                    </div>
+                    <div class="dior-topbar-right">
+                        <button type="button" class="dior-msg-btn btn"><i class="far fa-envelope"></i></button>
+                        <button type="button" class="dior-notif-btn btn"><i class="far fa-bell"></i></button>
+                    </div>
+                </header>
+
+                <div id="dior-doc-content">
+                    <div class="dior-tab-panel active" id="tab-doc-overview">
+                        <div class="dior-preview-body">
+                            <div class="dior-preview-card">
+                                <h2>Mobile offcanvas drawer</h2>
+                                <p>Tap ☰ above to open the provider menu. The drawer has an X button, the backdrop is
+                                    tappable, and <kbd>Esc</kbd> closes it.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dior-tab-panel" id="tab-doc-patients-records" hidden="hidden">
+                        <div class="dior-preview-body">
+                            <div class="dior-preview-card">
+                                <h2>Patient Records</h2>
+                                <p><span class="dior-preview-pill">Active</span></p>
+                                <p style="margin-top:8px;">Selecting a menu item closes the drawer and lands on this
+                                    panel — exactly like the live dashboard.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../assets/js/dior-doctor-navigation.js"></script>
+</body>
+
+</html>

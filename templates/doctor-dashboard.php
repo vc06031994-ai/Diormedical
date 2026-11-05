@@ -8,7 +8,7 @@
         <!-- ============================================================ -->
         <!-- DOCTOR SIDEBAR                                               -->
         <!-- ============================================================ -->
-        <aside class="dior-side" id="dior-doc-sidebar">
+        <aside class="dior-side" id="dior-doc-sidebar" aria-label="Provider menu">
             <div class="dior-side-header">
                 <div class="brand">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="brand-link">
@@ -20,6 +20,11 @@
                         <?php endif; ?>
                     </a>
                 </div>
+                <!-- Mobile drawer close (X) — hidden on desktop via CSS -->
+                <button type="button" class="dior-side-close btn" id="dior-doc-side-close"
+                    onclick="diorDocCloseMobile()" aria-label="Close menu" title="Close menu">
+                    <i class="fas fa-xmark" aria-hidden="true"></i>
+                </button>
             </div>
 
             <!-- Doctor Identity Card Removed -->
@@ -213,7 +218,9 @@
             <!-- Topbar -->
             <header class="dior-topbar">
                 <div class="dior-topbar-left">
-                    <button type="button" class="dior-mobile-menu-toggle btn" onclick="diorDocOpenMobile()">
+                    <button type="button" class="dior-mobile-menu-toggle btn" id="dior-doc-menu-toggle"
+                        aria-controls="dior-doc-sidebar" aria-expanded="false" aria-label="Open menu"
+                        onclick="diorDocOpenMobile(event)">
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="dior-top-search">

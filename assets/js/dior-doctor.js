@@ -964,26 +964,44 @@ window.diorDocSwitchTab = function (tabId, updateUrl) {
     diorDocCloseMobile();
 };
 
-// Mobile menu toggle
-window.diorDocOpenMobile = function () {
+// Mobile menu toggle — delegates to the shared drawer controller so the
+// sidebar, backdrop and body scroll lock always stay in sync.
+window.diorDocOpenMobile = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (typeof window.diorDocSetDrawer === 'function') {
+        if (window.innerWidth > 1024) {
+            window.diorDocSetDrawer(false);
+            const wrap = document.querySelector('.dior-doctor-wrap .dior-app') || document.querySelector('.dior-app');
+            if (wrap) wrap.classList.toggle('dior-sidebar-collapsed');
+            return;
+        }
+        window.diorDocSetDrawer(!window.diorDocIsDrawerOpen());
+        return;
+    }
     const sidebar = document.getElementById('dior-doc-sidebar');
     const backdrop = document.getElementById('dior-doc-backdrop');
-    const isMobile = window.innerWidth <= 1024;
-
+    if (!sidebar) return;
     if (sidebar.classList.contains('mobile-open')) {
         sidebar.classList.remove('mobile-open');
-        if (isMobile && backdrop) backdrop.classList.remove('active');
+        if (backdrop) { backdrop.classList.remove('active'); backdrop.classList.remove('open'); }
+        document.body.classList.remove('dior-drawer-locked');
     } else {
         sidebar.classList.add('mobile-open');
-        if (isMobile && backdrop) backdrop.classList.add('active');
+        if (backdrop) { backdrop.classList.add('active'); backdrop.classList.add('open'); }
+        document.body.classList.add('dior-drawer-locked');
     }
 };
 
 window.diorDocCloseMobile = function () {
+    if (typeof window.diorDocSetDrawer === 'function') {
+        window.diorDocSetDrawer(false);
+        return;
+    }
     const sidebar = document.getElementById('dior-doc-sidebar');
     const backdrop = document.getElementById('dior-doc-backdrop');
     if (sidebar) sidebar.classList.remove('mobile-open');
-    if (backdrop) backdrop.classList.remove('active');
+    if (backdrop) { backdrop.classList.remove('active'); backdrop.classList.remove('open'); }
+    document.body.classList.remove('dior-drawer-locked');
 };
 
 // Search patients with pagination reset
@@ -3045,22 +3063,31 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 
-/* v17.2.1: desktop and mobile share the same sidebar toggle entry point. */
+/* Desktop and mobile share the same sidebar toggle entry point.
+   The actual state change is owned by diorDocSetDrawer() (navigation controller),
+   which also drives #dior-doc-backdrop so an outside tap can close the drawer. */
 (function(){
   if (typeof window === 'undefined') return;
   window.diorDocOpenMobile = function(e) {
     if (e && e.preventDefault) e.preventDefault();
-    var sidebar = document.querySelector('#dior-doc-sidebar, #dior-sidebar, .dior-sidebar, .dior-side-nav, .dior-sidebar-wrap');
-    var backdrop = document.getElementById('dior-drawer-backdrop');
     if (window.innerWidth > 1024) {
-      var wrap = document.querySelector('.dior-patient-portal-wrap') || document.querySelector('.dior-app') || document.querySelector('.dior-doctor-dashboard-wrap');
+      var wrap = document.querySelector('.dior-doctor-wrap .dior-app') || document.querySelector('.dior-doctor-wrap') || document.querySelector('.dior-app');
       if (wrap) wrap.classList.toggle('dior-sidebar-collapsed');
-      else if (sidebar) sidebar.classList.toggle('collapsed');
+      else {
+        var rail = document.getElementById('dior-doc-sidebar');
+        if (rail) rail.classList.toggle('collapsed');
+      }
       return;
     }
+    if (typeof window.diorDocSetDrawer === 'function') {
+      window.diorDocSetDrawer(!window.diorDocIsDrawerOpen());
+      return;
+    }
+    var sidebar = document.getElementById('dior-doc-sidebar');
+    var backdrop = document.getElementById('dior-doc-backdrop');
     if (sidebar) sidebar.classList.toggle('mobile-open');
-    if (backdrop) backdrop.classList.toggle('active');
-    document.body.style.overflow = sidebar && sidebar.classList.contains('mobile-open') ? 'hidden' : '';
+    if (backdrop) { backdrop.classList.toggle('active'); backdrop.classList.toggle('open'); }
+    document.body.classList.toggle('dior-drawer-locked', !!(sidebar && sidebar.classList.contains('mobile-open')));
   };
 })();
 

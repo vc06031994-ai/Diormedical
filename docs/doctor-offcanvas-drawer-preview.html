@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Doctor Dashboard — offcanvas drawer preview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/dior-custom.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f7fb;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        /* Preview-only shell — not part of the plugin stylesheet. */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 44px;
+            padding: 32px;
+            flex-wrap: wrap;
+        }
+
+        .preview-copy {
+            max-width: 400px;
+            color: #0b1030;
+        }
+
+        .preview-copy h1 {
+            font-size: 22px;
+            margin: 0 0 12px;
+        }
+
+        .preview-copy p,
+        .preview-copy ul {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: #334155;
+        }
+
+        .preview-copy ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        .preview-copy code {
+            background: #e8eef7;
+            border-radius: 4px;
+            padding: 1px 5px;
+            font-size: 12px;
+        }
+
+        .phone-frame {
+            width: 390px;
+            height: 844px;
+            border-radius: 40px;
+            background: #0b1030;
+            padding: 12px;
+            box-shadow: 0 24px 60px rgba(11, 16, 48, .35);
+            flex: 0 0 auto;
+        }
+
+        .phone-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 30px;
+            background: #fff;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview-copy">
+        <h1>Doctor offcanvas drawer — fixed</h1>
+        <p>This phone frame renders the real <code>dior-custom.css</code> together with the real
+            <code>dior-doctor-navigation.js</code> at 390&nbsp;px — the same mobile breakdown that was reported.</p>
+        <p>Open the drawer with the ☰ button and check:</p>
+        <ul>
+            <li>the drawer now has a visible <strong>X close button</strong> in its header;</li>
+            <li>the backdrop is dimmed and <strong>tapping outside the drawer closes it</strong>;</li>
+            <li>the X and the <kbd>Esc</kbd> key close it too;</li>
+            <li>picking a menu item closes it and switches the panel;</li>
+            <li>the page behind is scroll-locked while it is open.</li>
+        </ul>
+    </div>
+
+    <div class="phone-frame">
+        <iframe src="doctor-offcanvas-drawer-preview-frame.html" title="Doctor dashboard mobile preview"
+            loading="lazy"></iframe>
+    </div>
+</body>
+
+</html>
